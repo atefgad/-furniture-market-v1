@@ -1,0 +1,188 @@
+/*************************
+  Account Css Styles *****
+  ************************
+  (Profile - Addresses ***
+  - Wishlist - Orders) ***
+  *************************/
+
+/*** Account Styles ***/
+.account__page__container {
+  margin-top: -2rem;
+}
+.account__content {
+  padding: 50px 0;
+}
+.wrapper__tab_content {
+}
+
+.wrapper__tab_content .tab__title {
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: var(--second-color);
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid var(--second-color);
+  padding: 0 15px;
+}
+.wrapper__tab_content a {
+  height: 45px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-transform: uppercase;
+  color: var(--color-main);
+  background-color: #f6f6f6;
+
+  font-size: 13px;
+  font-weight: 600;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #ebebeb;
+  padding: 0 15px;
+}
+.wrapper__tab_content a:last-child {
+  margin-bottom: 0;
+}
+.wrapper__tab_content .link_active {
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  position: relative;
+}
+
+.wrapper__tab_content .link_active::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 5px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-left: 20px solid var(--primary-color);
+  border-bottom: 15px solid transparent;
+}
+
+/*** Addresses Styles ***/
+.address__card {
+  padding: 15px 20px;
+  border: 1px solid #d7dde8;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 3px 2px;
+  position: relative;
+}
+.address__card > p {
+  /* color: var(--primary-color); */
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.address__card > h6 {
+  font-weight: 600;
+}
+.address__card span {
+  display: block;
+  margin-top: 5px;
+}
+.address__card .address__icon {
+  font-size: 40px;
+  color: #e7e4e4;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+
+/*** Profile Styles ***/
+.profile__card__bg {
+  padding: 20px;
+  min-height: 130px;
+  background: #757f9a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #d7dde8,
+    #757f9a
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #d7dde8,
+    #d7dde8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 0, 0, 0.562)),
+    url("../assets/images/bg.jpg") no-repeat center bottom; */
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  top: -70px;
+  left: 0;
+}
+
+.profile__card__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 10px;
+}
+.profile__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  border-color: 2px solid var(--primary-color);
+}
+.profile__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.profile__text {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.profile__text .__name {
+  color: var(--second-color);
+}
+.profile__text .__caption {
+}
+
+@media (max-width: 992px) {
+  .nav_tab_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .wrapper__tab_content {
+    margin-bottom: 2rem;
+    border: none;
+  }
+  .wrapper__tab_content a {
+    padding: 0 5px;
+    text-transform: lowercase;
+    margin: 0 0 10px 0;
+    justify-content: center;
+  }
+  .wrapper__tab_content .link_active::after {
+    top: unset;
+    bottom: -27px;
+    right: calc(50% - 10px);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--primary-color);
+  }
+}

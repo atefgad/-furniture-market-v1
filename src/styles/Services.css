@@ -1,0 +1,61 @@
+/**********************
+  Services Css Styles *
+  *********************/
+.services {
+  padding: 50px 0;
+}
+.service__item {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  padding: 20px;
+  /* background-color: var(--card-bg-01); */
+  background-color: rgb(247, 244, 244);
+  border: 1px solid rgb(247, 244, 244);
+
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  transition: background 0.3s ease-out;
+}
+.service__item:hover {
+  background: var(--card-bg-01);
+}
+.service__item span i {
+  font-size: 2.2rem;
+  padding: 15px;
+  border-radius: 50px;
+  font-weight: 400 !important;
+  background-color: var(--second-color);
+  color: #fff;
+  transition: 0.2s ease-out;
+}
+/* .service__item:hover span i {
+  background-color: var(--primary-color);
+} */
+.service__item h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--second-color);
+}
+.service__item p {
+  font-size: 0.9rem;
+  margin-top: 0px;
+}
+
+/* Responsive Styles 576px */
+@media (max-width: 576px) {
+  .service__item {
+    margin-bottom: 1rem;
+    padding: 20px;
+  }
+}
+/* Responsive Styles 768px */
+@media (max-width: 768px) {
+  .service__item {
+    margin-bottom: 1.5rem;
+  }
+  .service__item span i {
+    font-size: 1.3rem;
+  }
+}

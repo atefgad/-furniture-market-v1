@@ -1,0 +1,54 @@
+/* page 404 */
+:root {
+  --background-color: inherit;
+  --text-color: #333;
+}
+.page404 {
+  max-width: 480px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 96px 0px;
+  text-align: center;
+  align-items: center;
+}
+.page404 .text h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.page404 .text p {
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  color: var(--gray-8);
+}
+
+.wrapper_404 {
+  margin-top: -40px;
+  margin-bottom: -20px;
+  display: grid;
+  place-content: center;
+  background-color: var(--background-color);
+  font-size: clamp(1.5rem, 1rem + 18vw, 15rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.wrapper_404 > div {
+  grid-area: 1/1/-1/-1;
+}
+.text_top {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 48%, 0% 58%);
+}
+.text_bottom {
+  clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+  color: transparent;
+  background: -webkit-linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background: linear-gradient(177deg, black 53%, var(--text-color) 65%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  transform: translateX(-0.02em);
+}

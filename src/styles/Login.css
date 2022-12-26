@@ -1,0 +1,21 @@
+/***************
+  Login Styles *
+****************/
+.form__group {
+  display: flex;
+  align-items: unset !important;
+  justify-content: space-between;
+  column-gap: 2rem;
+}
+.form__group_item {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-primary:hover {
+  background-color: var(--second-color) !important;
+  border-color: var(--second-color) !important;
+}

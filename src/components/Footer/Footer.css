@@ -1,0 +1,22 @@
+/********************
+  Footer Css Styles *
+  *******************/
+.footer {
+  background-color: var(--second-color);
+  /* margin-top: 70px; */
+  z-index: 1;
+}
+.footer-heading {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white-color);
+  margin-bottom: 15px;
+}
+.list-unstyled li a {
+  color: var(--gry-color);
+  transition: 0.3s;
+}
+.footer .list-unstyled li a:hover {
+  color: var(--white-color);
+  margin-left: 5px;
+}

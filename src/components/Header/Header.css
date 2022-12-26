@@ -1,0 +1,259 @@
+/********************
+  Header Css Styles *
+  *******************/
+.header {
+  width: 100%;
+}
+
+.sticky__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition-duration: 0.3s;
+}
+
+.top__header {
+  background-color: var(--second-color);
+  color: var(--white-color);
+  height: 80px;
+  padding: 10px 0;
+  transition-duration: 0.3s;
+}
+
+.nav__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+.logo img {
+  width: 35px;
+  height: 35px;
+}
+.logo h1 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: aliceblue;
+}
+.logo h1 > span {
+  color: var(--primary-color);
+}
+.logo p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-4);
+}
+
+/*** search bar */
+.search-bar__warpper {
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px; */
+
+  width: 40%;
+}
+
+.wrrapper__content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+.search-bar__input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  line-height: normal;
+  border-radius: 0;
+  border-radius: 20px 0 0 20px;
+  padding: 10px;
+  -webkit-appearance: none;
+}
+.search-bar__input:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: transparent;
+  outline: 0;
+  box-shadow: unset;
+}
+
+.search-bar__button {
+  height: 100%;
+  width: 50px;
+  border-radius: 0;
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+/*** nav__icons */
+.nav__icons {
+  display: flex;
+  align-items: center;
+  column-gap: 1.2rem;
+}
+.nav__icons span {
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+.nav__icons span:hover {
+  cursor: pointer;
+}
+.nav__icons a:hover {
+  cursor: pointer;
+  color: inherit;
+}
+.nav__icons i {
+  font-size: 1.4rem;
+}
+.fav__icon,
+.cart__icon {
+  position: relative;
+}
+.nav__icons .badge {
+  position: absolute;
+  top: -3px;
+  right: 0%;
+  width: 15px;
+  height: 15px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  z-index: 10;
+}
+/* user icon  */
+.user__icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: "remixicon" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  transition: 0.3s;
+}
+.user__icon::after {
+  content: "\ea4e";
+  border: none !important;
+}
+.user__icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.user__caption {
+  margin-bottom: -8px;
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+}
+.user__text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  transition: color 0.4s ease-in;
+}
+
+.nav__icons a:hover .user__caption {
+  color: var(--white-color) !important;
+}
+
+/*** dropdown menu */
+.dropdown__menu .dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 5px;
+}
+
+/*** mobile menu */
+.mobile__menu {
+  display: none;
+  color: var(--white-color);
+}
+
+/* Responsive Styles 500px */
+@media (max-width: 500px) {
+  .logo h1 {
+    font-size: 1rem;
+  }
+  .nav__icons {
+    column-gap: 3px;
+  }
+}
+
+/* Responsive Styles 768px */
+@media (max-width: 768px) {
+  /* Search Bar */
+  .search-bar__warpper {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    padding: 0 20px;
+    width: 100%;
+    top: 80px;
+    padding-top: 20px;
+    left: 0;
+    background: var(--second-color);
+    z-index: 1;
+    transition: visibility 0.25s ease-in-out, margin-bottom 0.25s ease-in-out;
+  }
+  .search-bar__warpper.is_visible {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+  }
+  .wrrapper__content {
+    padding-bottom: 25px;
+  }
+
+  /* nav__icons */
+  .nav__icons {
+  }
+  .nav__icons .fav__icon {
+    display: none;
+  }
+  /* User */
+  .user__info {
+    display: none;
+  }
+
+  .mobile__menu {
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .mobile__menu:hover {
+    color: var(--primary-color);
+  }
+}
+
+/* Responsive Styles 992px */
+@media (max-width: 992px) {
+  /* sticky__header 
+  .sticky__header .main__navbar {
+    opacity: 0;
+    visibility: hidden;
+    top: -300px;
+  }*/
+  /* User */
+  .user__info {
+    display: none;
+  }
+  .dropdown__menu {
+    left: 0;
+  }
+}
