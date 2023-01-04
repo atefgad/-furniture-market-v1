@@ -1,2 +1,2 @@
-# -multimart-v1
- multimart - reactjs web app for online store
+# -m2market-v1
+ m2market - reactjs web app for online store
