@@ -2,28 +2,6 @@
 *** Payment Card ***
 ******************/
 
-.payment__card .btn {
-  width: 100%;
-  color: white;
-
-  justify-content: center;
-  padding: 2vh 0;
-  /* margin-top: 3vh; */
-}
-
-.payment__card .btn:focus {
-  box-shadow: none;
-  outline: none;
-  box-shadow: none;
-  color: white;
-
-  transition: none;
-}
-
-.payment__card .btn:hover {
-  color: white;
-}
-
 .payment__card .form-control {
   height: 50px;
   border: 2px solid #eee;
@@ -42,6 +20,7 @@
 .payment__card .card__item {
   margin-bottom: 20px;
 }
+
 .payment__card .card__input__wrapper {
   position: relative;
 }

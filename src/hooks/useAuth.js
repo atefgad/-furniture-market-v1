@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 // Firebase
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase.config";
@@ -24,11 +23,9 @@ const useAuth = () => {
   const logout = () => {
     signOut(auth)
       .then(() => {
-        toast.success("logged out successfully");
+        // toast.success("logged out successfully");
       })
       .catch((error) => toast.error(error.message));
-
-    window.location("/home");
   };
 
   return { user, logout };

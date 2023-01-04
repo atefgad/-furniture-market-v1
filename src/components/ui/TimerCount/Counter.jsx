@@ -10,7 +10,7 @@ const Counter = () => {
   let interVal;
 
   const countDown = () => {
-    const destination = new Date("JAN 01, 2023").getTime();
+    const destination = new Date("JAN 01, 2024").getTime();
     interVal = setInterval(() => {
       const now = new Date().getTime();
       const different = destination - now;

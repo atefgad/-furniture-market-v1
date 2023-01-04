@@ -1,0 +1,108 @@
+/** Order Summary **/
+.order__summary__toggle {
+  display: none;
+  width: 100%;
+  background-color: #faf8ff;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+.order__summary__toggle:hover {
+  background-color: #eee;
+}
+.order__summary__toggle span {
+  display: flex;
+  align-items: center;
+}
+
+.order__summary__card {
+  /* min-height: 100%;
+  padding: 20px;
+  color: var(--second-color);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  border-radius: 5px; */
+}
+
+.order__summary__card .hide__BTN {
+  display: none;
+  align-items: center;
+  color: var(--gray-6);
+  border: none;
+  padding-left: 0;
+  transition: color 0.5s ease-in-out;
+}
+.order__summary__card .hide__BTN:hover {
+  color: var(--second-color);
+  font-weight: 500;
+}
+.order__summary__card .hide__BTN i {
+  font-size: 20px;
+}
+.__card_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.__card_item span {
+  color: var(--gray-6);
+  font-size: 18px;
+}
+.__card_item.price {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.__card_item.price span {
+  color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.order__summary__container {
+  /* height: calc(100vh - 200px); */
+  height: auto;
+  padding-top: 20px;
+}
+
+/** order__summary__item **/
+
+.order__summary__item {
+}
+.order__summary__item .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.order__summary__item .item .img__item {
+  width: 90px;
+  height: 90px;
+  background-color: #ddd;
+  border-radius: 5px;
+  position: relative;
+}
+.order__summary__item .item .img__item img {
+  width: 100%;
+  pointer-events: none;
+}
+.order__summary__item .item .img__item .badge {
+  background-color: var(--primary-color);
+  position: absolute;
+  border-radius: 50%;
+  right: -5px;
+  top: -5px;
+}
+
+@media (max-width: 998px) {
+  .order__summary__toggle,
+  .order__summary__card .hide__BTN {
+    display: flex !important;
+  }
+}

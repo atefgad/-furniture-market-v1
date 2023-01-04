@@ -4,10 +4,29 @@ import { Col, Container, Row } from "reactstrap";
 // css Style
 import "../../../styles/Services.css";
 
-//services data
-import servicesData from "../../../assets/data/serviceData";
 import ScrollAnimation from "../../utility/ScrollAnimation/ScrollAnimation";
 
+//services data
+const servicesData = [
+  {
+    icon: "ri-truck-line",
+    title: "Free Shipping",
+    subtitle: "Capped at $120 per order",
+    bg: "#d6e5fb",
+  },
+  {
+    icon: "ri-refresh-line",
+    title: "Easy Returns",
+    subtitle: "14-Day Returns",
+    bg: "#ceebe9",
+  },
+  {
+    icon: "ri-secure-payment-line",
+    title: "Secure Payment",
+    subtitle: "Up to 12 months installments",
+    bg: "#e2f2b2",
+  },
+];
 const Services = () => {
   return (
     <div className="services">

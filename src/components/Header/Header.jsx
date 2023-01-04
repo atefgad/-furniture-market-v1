@@ -1,6 +1,6 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Container,
   DropdownItem,
@@ -9,6 +9,8 @@ import {
   Row,
   UncontrolledDropdown,
 } from "reactstrap";
+
+import { logout as LOGOUT } from "../../store/slices/userSlice.js";
 
 // Motion for animation
 import { motion } from "framer-motion";
@@ -22,84 +24,73 @@ import "./Header.css";
 // Firebase
 import useAuth from "../../hooks/useAuth";
 
+import Search from "./Search";
+import { toast } from "react-hot-toast";
+
 const Header = () => {
-  const [isActiveToggle, setIsActiveToggle] = useState(false);
   const [searchToggle, setSearchToggle] = useState(false);
-  const headerRef = useRef(null);
-  //const searchRef = useRef(null);
+  const [isActiveToggle, setIsActiveToggle] = useState(false);
+
+  const [scrolled, setScrolled] = useState(false);
+
+  const { user, logout } = useAuth();
+  const { cartItems } = useSelector((state) => state.cart);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const navigateToCart = () => {
     navigate("/cart");
   };
-  // const toggleSearch = () => { searchRef.current.classList.toggle('search')}
+  const handleLogout = () => {
+    dispatch(LOGOUT());
+    logout();
+    toast.success("logged out successfully");
+    navigate("/home");
+  };
 
-  const { user, logout } = useAuth();
-
-  const { cartItems } = useSelector((state) => state.cart);
-
-  /*
   const stickyHeader = () => {
-    window.addEventListener("scroll", () => {
-      if (
-        document.body.scrollTop > 350 ||
-        document.documentElement.scrollTop > 350
-      ) {
-        headerRef.current.classList.add("sticky__header");
-      } else {
-        headerRef.current.classList.remove("sticky__header");
-      }
-    });
+    const offset = window.scrollY;
+    if (offset > 350) {
+      setScrolled(true);
+      //headerRef.current.classList.add("sticky__header");
+    } else {
+      setScrolled(false);
+      //headerRef.current.classList.remove("sticky__header");
+    }
   };
 
   useEffect(() => {
-    stickyHeader();
+    //stickyHeader();
 
-    return () => window.removeEventListener("scroll", stickyHeader);
-  });
-*/
+    window.addEventListener("scroll", stickyHeader);
+
+    //return () => window.removeEventListener("scroll", stickyHeader);
+  }, []);
 
   return (
-    <header className="header" ref={headerRef}>
+    <header className={`header ${scrolled ? "sticky__header" : ""}`}>
       <div className="top__header">
         <Container>
           <Row>
             <div className="nav__wrapper">
               {/* logo */}
               <div className="logo">
-                <img src={images.logo} alt="logo" />
-                <div>
-                  <h1>
-                    Multi <span className="main__color">Mart</span>
-                  </h1>
-                  <p>Furniture Store</p>
-                </div>
-              </div>
-              {/* search bar */}
-              <div
-                className={`search-bar__warpper ${
-                  searchToggle ? "is_visible" : ""
-                }`}
-              >
-                <div className="wrrapper__content">
-                  <input
-                    type="text"
-                    className="search-bar__input form-control"
-                  />
-                  <button
-                    type="button"
-                    className="search-bar__button btn btn-primary"
-                  >
-                    <i className="ri-search-2-line"></i>
-                  </button>
-                </div>
+                <Link to="/">
+                  <img src={images.logo} alt="logo" />
+                  <div>
+                    <h1>
+                      M2<span className="main__color">Market</span>
+                    </h1>
+                    <p>Furniture Store</p>
+                  </div>
+                </Link>
               </div>
 
               {/* nav icons */}
               <div className="nav__icons">
                 <span
-                  className="mobile__menu"
+                  className="search__toggle"
                   onClick={() => setSearchToggle(!searchToggle)}
                 >
                   <i className="ri-search-2-line"></i>
@@ -107,7 +98,7 @@ const Header = () => {
 
                 <span className="fav__icon">
                   <i className="ri-heart-2-line"></i>
-                  <span className="badge">2</span>
+                  {/* <span className="badge">2</span> */}
                 </span>
                 <span className="cart__icon" onClick={navigateToCart}>
                   <i className="ri-shopping-cart-line"></i>
@@ -156,7 +147,7 @@ const Header = () => {
                         <Link to="/account/addresses"> My Addresses</Link>
                       </DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem onClick={logout}>
+                      <DropdownItem onClick={handleLogout}>
                         <i className="ri-logout-circle-line"></i> Logout
                       </DropdownItem>
                     </DropdownMenu>
@@ -187,6 +178,9 @@ const Header = () => {
           </Row>
         </Container>
       </div>
+
+      {/* Navbar */}
+      <Search toggle={searchToggle} setToggle={setSearchToggle} />
       {/* Navbar */}
       <Navbar
         isActiveToggle={isActiveToggle}

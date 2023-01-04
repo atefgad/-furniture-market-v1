@@ -73,12 +73,52 @@
 .widget__content .widget__menu label {
   display: flex;
   align-items: center;
-  column-gap: 3px;
+  column-gap: 2px;
   font-weight: 500;
-  width: 45%;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  padding: 8px 3px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.widget__content .widget__menu label input:checked {
+
+.widget__content .widget__menu label input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  background: #fff;
+  border: 2px solid #b0b0b0;
+  margin: 0 8px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline-offset: 5px;
+  outline-color: #b0b0b0;
 }
+.widget__content .widget__menu label input[type="checkbox"]:after {
+  content: "";
+  display: block;
+  transform: scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 7px;
+  transition: 120ms transform ease-in-out;
+}
+.widget__content .widget__menu label input[type="checkbox"]:checked:after {
+  transform: scale(1);
+}
+
+.widget__content .widget__menu label input[type="checkbox"]:checked {
+  border-color: var(--primary-color);
+}
+
+.widget__content .widget__menu label input[type="checkbox"]:checked:after {
+  background-color: var(--primary-color);
+}
+
 .widget__content .widget__menu_colors {
   margin: 0;
   padding: 0;

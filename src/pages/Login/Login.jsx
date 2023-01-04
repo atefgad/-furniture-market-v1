@@ -12,11 +12,14 @@ import { auth } from "../../firebase.config";
 
 import "../../styles/Login.css";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/slices/userSlice";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // React-Form-Hook
   const {
@@ -40,9 +43,20 @@ const Login = () => {
       const user = userCredential.user;
 
       console.log("user", user);
+
+      dispatch(
+        login({
+          uid: user.uid,
+          displayName: user.displayName,
+          email,
+          addresses: [],
+        })
+      );
+
       setLoading(false);
       toast.success("successfully logged in :)");
       //navigate(-1);
+      navigate("/cart");
     } catch (error) {
       setLoading(false);
       toast.error(error.message);

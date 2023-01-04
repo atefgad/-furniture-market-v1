@@ -6,7 +6,7 @@ const CommonSection = ({ title }) => {
   return (
     <section className="common__section">
       <Container>
-        <ScrollAnimation animate="fade" duration={200}>
+        <ScrollAnimation animate="fade-up" duration={200}>
           <div className="text-center">
             <h1>{title}</h1>
           </div>

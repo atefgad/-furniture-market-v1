@@ -19,6 +19,7 @@ import {
   Orders,
   Wishlist,
 } from "../pages";
+import ProtectedRoute from "./ProtectedRoute";
 
 const Routers = () => {
   const { user } = useAuth();
@@ -37,12 +38,18 @@ const Routers = () => {
         { path: "shop/:id", element: <Product /> },
         { path: "category/:category", element: <Category /> },
         { path: "signup", element: <Signup /> },
-        { path: "login", element: !user ? <Login /> : <Navigate to={-1} /> },
+        { path: "login", element: <Login /> },
+        // { path: "login", element: !user ? <Login /> : <Navigate to="/cart" /> },
         { path: "*", element: <Navigate to="/404" /> },
       ],
     },
     {
       path: "checkout",
+      // element: (
+      //   <ProtectedRoute>
+      //     <Checkout />
+      //   </ProtectedRoute>
+      // ),
       element: user ? <Checkout /> : <Navigate to="/login" />,
     },
     {

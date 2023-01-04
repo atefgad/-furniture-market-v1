@@ -1,5 +1,5 @@
 const Hemlet = ({ title, children }) => {
-  document.title = "MultiMart - " + title;
+  document.title = "M2-Market - " + title;
 
   return <div>{children}</div>;
 };

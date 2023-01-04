@@ -1,8 +1,7 @@
-import { NavLink, Outlet, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
 import { Toaster } from "react-hot-toast";
 import { Footer, Header, Hemlet, Modal } from "../../components";
-import useAuth from "../../hooks/useAuth";
 
 import "../../styles/Account.css";
 
@@ -14,14 +13,9 @@ const links = [
 ];
 
 const Account = () => {
-  const { user, logout } = useAuth();
-
-  let location = useLocation();
-  const navigate = useNavigate();
-
-  if (location.pathname === "/account") {
-    navigate("/account/orders");
-  }
+  // if (location.pathname === "/account") {
+  //   navigate("/account/orders");
+  // }
   return (
     <Hemlet title="Account">
       <Header />
@@ -51,25 +45,6 @@ const Account = () => {
 
             <Col lg="9">
               <Row>
-                <Col lg="12">
-                  {/* Profile Card */}
-                  <div className="profile__card__bg w-100"></div>
-                  <div className="profile__card">
-                    <div className="profile__card__wrapper">
-                      <div className="profile__img">
-                        <img src={user?.photoURL} alt={user?.displayName} />
-                      </div>
-                      <div className="profile__text">
-                        <h4 className="__name">{user?.displayName}</h4>
-                        {/* <p className="__caption">{user?.email}</p> */}
-                      </div>
-                    </div>
-                    <button className="btn btn-primary d-flex" onClick={logout}>
-                      <i className="ri-logout-circle-line me-1"></i>
-                      Logout
-                    </button>
-                  </div>
-                </Col>
                 {/* Content (Outlet) */}
                 <Col lg="12">
                   <Outlet />

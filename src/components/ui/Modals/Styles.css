@@ -36,3 +36,32 @@
   font-size: 1.5rem;
   color: #413d3dca;
 }
+
+/** OrderConfirmation **/
+
+.OrderConfirmation {
+  margin: auto;
+}
+
+.OrderConfirmation .icon__container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 90px;
+  width: 90px;
+  border: 2px solid #eee;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.OrderConfirmation button {
+  border-radius: 5px;
+}
+/*# sourceMappingURL=style.css.map */

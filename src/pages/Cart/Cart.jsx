@@ -6,6 +6,7 @@ import CartListItem from "./CartListItem";
 
 // Cart Styles
 import "../../styles/Cart.css";
+import CurrencyFormat from "react-currency-format";
 
 const Cart = () => {
   const { cartItems, totalAmount } = useSelector((state) => state.cart);
@@ -44,9 +45,18 @@ const Cart = () => {
                 <div className=" cart__card py-3 px-4">
                   <div className="d-flex align-items-center justify-content-between">
                     <h6>Subtotal </h6>
-                    <span className="fs-4 fw-bold text-primary">
-                      ${totalAmount}
-                    </span>
+
+                    <CurrencyFormat
+                      renderText={(val) => (
+                        <span className="fs-4 fw-bold text-primary">{val}</span>
+                      )}
+                      decimalScale={2}
+                      fixedDecimalScale={true}
+                      value={totalAmount}
+                      displayType={"text"}
+                      thousandSeparator={true}
+                      prefix="$"
+                    />
                   </div>
                   <hr className="hr" />
                   <p className="fs-6">

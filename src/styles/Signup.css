@@ -3,7 +3,6 @@
 ****************/
 .form__group {
   display: flex;
-  align-items: unset !important;
   justify-content: space-between;
   column-gap: 2rem;
 }
@@ -25,9 +24,9 @@
     flex-direction: column;
     margin-bottom: 0 !important;
   }
-  .form__group_item {
+  /* .form__group_item {
     margin-bottom: 1rem;
-  }
+  } */
 }
 
 /******************************* */

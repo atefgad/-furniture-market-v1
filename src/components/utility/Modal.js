@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeModal } from "../../store/slices/modalSlice";
-import { ModalUi, AddAddress } from "../index";
+import { ModalUi, AddAddress, OrderConfirmation } from "../index";
 
 function Modal() {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function Modal() {
   //const [modal, setModal] = useState(false);
   //const toggle = () => setModal(!modal);
 
-  const componentsNames = { AddAddress };
+  const componentsNames = { AddAddress, OrderConfirmation };
   let renderComponent;
 
   if (componentName) {

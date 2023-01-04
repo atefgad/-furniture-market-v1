@@ -1,15 +1,57 @@
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Animated, Hemlet } from "../../components";
+import { toast } from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
+import { logout as LOGOUT } from "../../store/slices/userSlice.js";
+import { useDispatch } from "react-redux";
 
 const Profile = () => {
+  const { user, logout } = useAuth();
+
+  let location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(LOGOUT());
+    logout();
+    toast.success("logged out successfully");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <Hemlet title="Profile">
       <Animated>
         <Container>
           <Row className="account__page__container">
+            <Col lg="12">
+              {/* Profile Card */}
+              <div className="profile__card__bg w-100"></div>
+              <div className="profile__card">
+                <div className="profile__card__wrapper">
+                  <div className="profile__img">
+                    <img src={user?.photoURL} alt={user?.displayName} />
+                  </div>
+                  <div className="profile__text">
+                    <h4 className="__name">{user?.displayName}</h4>
+                    {/* <p className="__caption">{user?.email}</p> */}
+                  </div>
+                </div>
+                <button
+                  className="btn btn-primary d-flex"
+                  onClick={handleLogout}
+                >
+                  <i className="ri-logout-circle-line me-1"></i>
+                  Logout
+                </button>
+              </div>
+            </Col>
             <Col lg="12" md="12" className="">
               <h5 className="mb-3">Edit your account information</h5>
-              <Form>
+              <Form onSubmit={handleSubmit}>
                 <FormGroup className="form__group">
                   <input
                     className="form-control"

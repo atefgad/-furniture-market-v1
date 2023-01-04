@@ -3,7 +3,6 @@
 ****************/
 .form__group {
   display: flex;
-  align-items: unset !important;
   justify-content: space-between;
   column-gap: 2rem;
 }

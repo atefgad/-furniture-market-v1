@@ -11,8 +11,18 @@ import Services from "./ui/Services/Services";
 import TimerCount from "./ui/TimerCount/TimerCount";
 import Brands from "./ui/Brands/Brands";
 import PaymentCard from "./ui/PaymentCard/PaymentCard";
+import OrderSummaryCard from "./ui/OrderSummaryCard/OrderSummaryCard";
+//CheckoutProcess
+import Information from "./ui/CheckoutProcess/Information";
+import Shipping from "./ui/CheckoutProcess/Shipping";
+import Payment from "./ui/CheckoutProcess/Payment";
+//Modals
+import Modal from "./utility/Modal";
+import ModalUi from "./ui/Modals/ModalUi";
+import AddAddress from "./ui/Modals/AddAddress";
+import OrderConfirmation from "./ui/Modals/OrderConfirmation";
 
-// Utility
+// utility
 import Hemlet from "./utility/Hemlet/Hemlet";
 import CommonSection from "./utility/CommonSection/CommonSection";
 import SectionHeading from "./utility/SectionHeading/SectionHeading";
@@ -26,11 +36,7 @@ import ScrollToTop from "./utility/ScrollToTop";
 // Buttons
 import AnimatedButton from "./utility/Buttons/AnimatedButton";
 import AddToCartBtn from "./utility/Buttons/AddToCartBtn";
-
-//Modals
-import Modal from "./utility/Modal";
-import ModalUi from "./ui/Modals/ModalUi";
-import AddAddress from "./ui/Modals/AddAddress";
+import CheckoutButton from "./utility/Buttons/CheckoutButton";
 
 // Export all components
 export {
@@ -46,6 +52,7 @@ export {
   Slides,
   AnimatedButton,
   AddToCartBtn,
+  CheckoutButton,
   ScrollToTop,
   ScrollAnimation,
   Services,
@@ -54,8 +61,13 @@ export {
   TimerCount,
   Brands,
   PaymentCard,
+  OrderSummaryCard,
+  Information,
+  Shipping,
+  Payment,
   //Modals
   Modal,
   ModalUi,
   AddAddress,
+  OrderConfirmation,
 };

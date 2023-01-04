@@ -21,7 +21,7 @@ const NotFound = () => {
       </div>
       <div className="bottom mt-2">
         <Link to="/" className="btn btn-lg btn-primary rounded-0">
-          Back to Dashboard
+          Back to Home
         </Link>
       </div>
     </div>

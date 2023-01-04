@@ -11,6 +11,8 @@ const initialState = {
   totalQuantity: getLocalStorage("totalQuantity")
     ? JSON.parse(getLocalStorage("totalQuantity"))
     : 0,
+  checkoutProcess: 1,
+  shipping: 0,
 };
 
 const cartSlice = createSlice({
@@ -119,6 +121,14 @@ const cartSlice = createSlice({
       localStorage.removeItem("cartItems");
       localStorage.removeItem("totalQuantity");
       localStorage.removeItem("totalAmount");
+
+      state.checkoutProcess = 1;
+    },
+    changeCheckoutProcess: (state, { payload }) => {
+      state.checkoutProcess = payload;
+    },
+    shippingMethod: (state, { payload }) => {
+      state.shipping = Number(payload);
     },
   },
 });
@@ -129,6 +139,8 @@ export const {
   decreaseQty,
   removeFromCart,
   clearCart,
+  changeCheckoutProcess,
+  shippingMethod,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

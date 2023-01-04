@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { Col, Container, Form, FormGroup, Row } from "reactstrap";
 import { Animated, CommonSection, Hemlet, Loading } from "../../components";
+
+import { login } from "../../store/slices/userSlice";
 
 // Firebase
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -19,6 +22,7 @@ import { db } from "../../firebase.config";
 import toast from "react-hot-toast";
 
 import "../../styles/Signup.css";
+import useAuth from "../../hooks/useAuth";
 
 const Signup = () => {
   const [file, setFile] = useState(null);
@@ -26,12 +30,20 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { logout } = useAuth();
 
   const handleImgChange = (e) => {
     //to get img url when upload and set into useState[file]
     setFile(e.target.files[0]);
     //to get img and display when upload
     setImgPreview(URL.createObjectURL(e.target.files[0]));
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
   };
 
   // React-Form-Hook
@@ -77,13 +89,26 @@ const Signup = () => {
               fname: data.firstName,
               lname: data.lastName,
             });
+
+            //storage user data into store
+            dispatch(
+              login({
+                uid: user.uid,
+                displayName: data.userName,
+                email: data.email,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                photoURL: downloadURL,
+                addresses: [],
+              })
+            );
           });
         }
       );
 
       setLoading(false);
       toast.success("account created successfully");
-      navigate("/login");
+      handleLogout();
     } catch (error) {
       setLoading(false);
       setImgPreview(null);
