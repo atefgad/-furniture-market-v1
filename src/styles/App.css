@@ -1,6 +1,7 @@
 /* google fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
-
+/* Arabic Font */
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700;800;900&display=swap");
 /*  css variables */
 :root {
   /* Main Colors */
@@ -28,6 +29,8 @@
   --small-text-color: #999;
   --heading-text-color: #0a1d37;
   --heading-fontSize: 2rem;
+  --en__font: "Montserrat";
+  --ar__font: "Cairo";
 }
 
 /* reset browser default */
@@ -42,7 +45,10 @@ html {
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--en__font), sans-serif;
+}
+body:lang(ar) {
+  font-family: var(--ar__font), sans-serif;
 }
 
 h1,
@@ -136,6 +142,11 @@ img {
   border-color: transparent transparent #fff transparent;
   position: absolute;
 }
+.dropdown__menu:lang(ar)::before {
+  top: -27px;
+  left: 7px !important;
+  right: unset !important;
+}
 .dropdown__menu .dropdown-item {
 }
 .dropdown__menu .dropdown-item:active {
@@ -168,6 +179,10 @@ img {
   width: 60px;
   background-color: var(--primary-color);
 }
+.section__title:lang(ar)::after {
+  left: unset;
+  right: 0;
+}
 .section__link {
   display: flex;
   font-size: 16px;
@@ -177,6 +192,9 @@ img {
   font-weight: 500;
 
   transition: 0.3s;
+}
+.section__link:lang(ar) {
+  flex-direction: row-reverse;
 }
 .section__link:hover,
 .section__link:active {

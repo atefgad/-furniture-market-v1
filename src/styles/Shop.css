@@ -132,6 +132,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  column-gap: 5px;
   width: 50%;
   margin-bottom: 5px;
   cursor: pointer;
@@ -164,10 +165,14 @@
   position: absolute;
   top: 7px;
   color: var(--primary-color);
-  left: 18px;
+  left: 23px;
   font-size: 14px;
   font-weight: 600;
   transition: opacity 0.3s ease-in;
+}
+.widget__menu_colors label i:lang(ar) {
+  left: unset !important;
+  right: 27px;
 }
 .widget__menu_colors label input:checked ~ i {
   opacity: 1;
@@ -238,6 +243,9 @@
   line-height: 2.43em;
   padding: 1px 0;
   color: #5d7184;
+}
+.advanced__pagination:lang(ar) {
+  flex-direction: row-reverse;
 }
 
 .advanced__pagination input {

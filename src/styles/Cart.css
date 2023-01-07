@@ -37,7 +37,7 @@
 .cart__item__desc__wrapper .delete__BTN {
   position: absolute;
   top: -20px;
-  right: -10px;
+  right: 0;
   width: 30px;
   height: 30px;
   background-color: var(--primary-color);
@@ -49,6 +49,10 @@
   align-items: center;
   justify-content: center;
   transition: background-color 0.4s ease-out;
+}
+.cart__item__desc__wrapper .delete__BTN:lang(ar) {
+  right: unset;
+  left: 0;
 }
 .cart__item__desc__wrapper .delete__BTN:hover {
   background-color: var(--second-color);
@@ -92,6 +96,9 @@
 .cart__item__controls .qty {
   display: flex;
   align-items: center;
+}
+.cart__item__controls .qty:lang(ar) {
+  flex-direction: row-reverse;
 }
 .cart__item__controls .qty .btn {
   border-radius: 50%;

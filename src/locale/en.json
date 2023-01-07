@@ -1,0 +1,72 @@
+{
+    "title": "hello world!",
+    "general": {
+        "shop_now": "shop now",
+        "view_all": "view all",
+        "close": "close"
+    },
+    "placeholder": {
+        "search": "I am shopping for..."
+    },
+    "hero": {
+        "hero_subtitle": "Free shipping offer order $120",
+        "New_arrivals": "New arrivals",
+        "collection": "Living Room"
+    },
+    "fetures": {
+        "secure_payment": "Secure Payment",
+        "easy_returns": "Easy Returns",
+        "free_shipping": "Free Shipping",
+        "feture_desc1": "Capped at $120 per order",
+        "feture_desc2": "14-Day Returns",
+        "feture_desc3": "Up to 12 months installments",
+        "feture1": "Fast and free delivery",
+        "feture2": "Money back guarantee",
+        "feture3": "24/7 customer support",
+        "feture4": "Secure online payment"
+    },
+    "section_head": {
+        "title1": "today's best deals",
+        "title2": "new chairs arrivals",
+        "title3": "best seller"
+    },
+    "offers": {
+        "limited": "limited offers",
+        "title": "UP TO 40% DISCOUNT",
+        "days": "Days",
+        "hours": "Hours",
+        "minutes": "Minutes",
+        "seconds": "Seconds"
+    },
+    "bannar": {
+        "lable": "New_arrivals",
+        "title": "Living furniture you love",
+        "sub_title": "sale up to ",
+        "off": "20% Off"
+    },
+    "newsletter": {
+        "title": "sign up for newsletter",
+        "desc": "Subscribe to the weekly newsletter for all the latest updates",
+        "email": "Your email address",
+        "submit": "submit"
+    },
+    "footer": {
+        "m1_title": "Customer zone",
+        "m1_item1": "your account",
+        "m1_item2": "shipping & policies",
+        "m1_item3": "refunds & replacements",
+        "m1_item4": "taxes & fees",
+        "m2_title": "about",
+        "m2_item1": "out story",
+        "m2_item2": "awards",
+        "m2_item3": "our team",
+        "m2_item4": "career",
+        "m3_title": "Resources",
+        "m3_item1": "Blog",
+        "m3_item2": "Newsletter",
+        "m3_item3": "Privacy Policy",
+        "payments_lable": "We Accept Credit Cards",
+        "copy_right": "All copyright reserved",
+        "made_by": "made by"
+    }
+}

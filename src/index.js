@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 // Store the current state
 import store from "./store";
 
+import "./i18n";
+
 // css Styles
 import "remixicon/fonts/remixicon.css";
 import "bootstrap/dist/css/bootstrap.css";

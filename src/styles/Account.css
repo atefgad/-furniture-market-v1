@@ -66,6 +66,12 @@
   border-left: 20px solid var(--primary-color);
   border-bottom: 15px solid transparent;
 }
+.wrapper__tab_content .link_active:lang(ar)::after {
+  left: -10px;
+  right: unset;
+  border-right: 20px solid var(--primary-color);
+  border-left: none;
+}
 
 /*** Addresses Styles ***/
 .address__card {
@@ -93,6 +99,10 @@
   position: absolute;
   bottom: 5px;
   right: 10px;
+}
+.address__card .address__icon:lang(ar) {
+  left: 10px;
+  right: unset;
 }
 
 /*** Profile Styles ***/

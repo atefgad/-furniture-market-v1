@@ -1,8 +1,10 @@
 import React from "react";
 import { Col, Container, Row } from "reactstrap";
+import { useTranslation } from "react-i18next";
 import { ScrollAnimation } from "../../components";
 
 const NewsLetterForm = () => {
+  const [tranlate] = useTranslation();
   return (
     <div className="newsletter mt-5">
       <Container>
@@ -15,14 +17,11 @@ const NewsLetterForm = () => {
                 </div>
 
                 <div className="widget__title">
-                  <h3>sign up for newsletter</h3>
+                  <h3>{tranlate("newsletter.title")}</h3>
                 </div>
 
                 <div className="widget__des">
-                  <p>
-                    Subscribe to the weekly newsletter for all the latest
-                    updates
-                  </p>
+                  <p>{tranlate("newsletter.desc")}</p>
                 </div>
               </div>
             </ScrollAnimation>
@@ -36,12 +35,12 @@ const NewsLetterForm = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Your email address.."
+                      placeholder={tranlate("newsletter.email")}
                     />
                   </div>
                   <div className="">
                     <button type="submit" className="btn btn-secondary">
-                      submit
+                      {tranlate("newsletter.submit")}
                     </button>
                   </div>
                 </div>

@@ -12,11 +12,19 @@
   color: var(--white-color);
   margin-bottom: 15px;
 }
-.list-unstyled li a {
+.footer .list-unstyled li a {
   color: var(--gry-color);
   transition: 0.3s;
+}
+.footer .list-unstyled li a:lang(ar) {
+  line-height: 25px;
 }
 .footer .list-unstyled li a:hover {
   color: var(--white-color);
   margin-left: 5px;
+}
+
+.footer .ps-3:lang(ar) {
+  padding-left: 0 !important;
+  padding-right: 0.8rem !important;
 }

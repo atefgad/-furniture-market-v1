@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -26,12 +26,15 @@ import useAuth from "../../hooks/useAuth";
 
 import Search from "./Search";
 import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const [searchToggle, setSearchToggle] = useState(false);
   const [isActiveToggle, setIsActiveToggle] = useState(false);
 
   const [scrolled, setScrolled] = useState(false);
+
+  const [tranlate, i18n] = useTranslation();
 
   const { user, logout } = useAuth();
   const { cartItems } = useSelector((state) => state.cart);
@@ -100,12 +103,41 @@ const Header = () => {
                   <i className="ri-heart-2-line"></i>
                   {/* <span className="badge">2</span> */}
                 </span>
+
                 <span className="cart__icon" onClick={navigateToCart}>
                   <i className="ri-shopping-cart-line"></i>
                   {cartItems.length > 0 ? (
                     <span className="badge">{cartItems.length}</span>
                   ) : null}
                 </span>
+
+                {/* language - dropdwon 
+                <div className="lang-container">
+                  <UncontrolledDropdown>
+                    <DropdownToggle className="lang-icon" tag="a">
+                      <motion.img
+                        whileTap={{ scale: 1.1 }}
+                        src={images.en}
+                        alt="language"
+                      />
+
+                      <span>En</span>
+                    </DropdownToggle>
+                    {/* dropdown__menu 
+                    <DropdownMenu className="dropdown__menu">
+                      <DropdownItem>
+                        <img src={images.en} alt="German" />
+                        <a href="#!">German</a>
+                      </DropdownItem>
+
+                      <DropdownItem>
+                        <img src={images.en} alt="French" />
+                        <a href="#!">French</a>
+                      </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                </div>
+                */}
 
                 {/* user icon - dropdwon */}
                 <UncontrolledDropdown className="user__container">

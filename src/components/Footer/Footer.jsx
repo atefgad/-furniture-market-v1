@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.css";
 import { Col, Container, Row } from "reactstrap";
+import { useTranslation } from "react-i18next";
 import images from "../../constants";
 import ScrollAnimation from "../utility/ScrollAnimation/ScrollAnimation";
 
@@ -23,6 +24,7 @@ const subMenu = (title, items = []) => {
 };
 
 function Footer() {
+  const [tranlate, i18n] = useTranslation();
   return (
     <footer className="footer pt-3">
       <Container>
@@ -35,7 +37,9 @@ function Footer() {
                   <i className="ri-truck-line"></i>
                 </span>
                 <div className="ps-3">
-                  <h6 className="text-light mb-1">Fast and free delivery</h6>
+                  <h6 className="text-light mb-1">
+                    {tranlate("fetures.feture1")}
+                  </h6>
                 </div>
               </div>
             </ScrollAnimation>
@@ -48,7 +52,9 @@ function Footer() {
                   <i className="ri-repeat-2-line"></i>
                 </span>
                 <div className="ps-3">
-                  <h6 className="text-light mb-1">Money back guarantee</h6>
+                  <h6 className="text-light mb-1">
+                    {tranlate("fetures.feture2")}
+                  </h6>
                 </div>
               </div>
             </ScrollAnimation>
@@ -61,7 +67,9 @@ function Footer() {
                   <i className="ri-customer-service-line"></i>
                 </span>
                 <div className="ps-3">
-                  <h6 className="text-light mb-1">24/7 customer support</h6>
+                  <h6 className="text-light mb-1">
+                    {tranlate("fetures.feture3")}
+                  </h6>
                 </div>
               </div>
             </ScrollAnimation>
@@ -73,7 +81,9 @@ function Footer() {
                   <i className="ri-bank-card-line"></i>
                 </span>
                 <div className="ps-3">
-                  <h6 className="text-light mb-1">Secure online payment</h6>
+                  <h6 className="text-light mb-1">
+                    {tranlate("fetures.feture4")}
+                  </h6>
                 </div>
               </div>
             </ScrollAnimation>
@@ -88,25 +98,29 @@ function Footer() {
           <Col md="8">
             <Row className="">
               <Col md="5" className="mb-md-0 mb-4">
-                {subMenu("Customer zone", [
-                  "your account",
-                  "shipping & policies",
-                  "refunds & replacements",
-                  "taxes & fees",
+                {subMenu(tranlate("footer.m1_title"), [
+                  tranlate("footer.m1_item1"),
+                  tranlate("footer.m1_item2"),
+                  tranlate("footer.m1_item3"),
+                  tranlate("footer.m1_item4"),
                 ])}
               </Col>
 
               <Col md="3" className="mb-md-0 mb-4">
-                {subMenu("about", [
-                  "out story",
-                  "awards",
-                  "our team",
-                  "career",
+                {subMenu(tranlate("footer.m2_title"), [
+                  tranlate("footer.m2_item1"),
+                  tranlate("footer.m2_item2"),
+                  tranlate("footer.m2_item3"),
+                  tranlate("footer.m2_item4"),
                 ])}
               </Col>
 
               <Col md="4" className="mb-md-0 mb-4">
-                {subMenu("Resources", ["Blog", "Newsletter", "Privacy Policy"])}
+                {subMenu(tranlate("footer.m3_title"), [
+                  tranlate("footer.m3_item1"),
+                  tranlate("footer.m3_item2"),
+                  tranlate("footer.m3_item3"),
+                ])}
               </Col>
             </Row>
           </Col>
@@ -114,10 +128,12 @@ function Footer() {
           {/* Credit Cards */}
           <Col md="4">
             <div className="mb-md-0 mb-4 text-center">
-              <h2 className="footer-heading">We Accept Credit Cards</h2>
+              <h2 className="footer-heading">
+                {tranlate("footer.payments_lable")}
+              </h2>
               <img
                 src={images.paymentsCards}
-                alt="Payment methods"
+                alt={tranlate("footer.payments_lable")}
                 style={{ width: "180px" }}
               />
             </div>
@@ -130,9 +146,11 @@ function Footer() {
       <div className="py-3 text-center">
         <p className="text-light  mb-0">
           <span className="text-light ">
-            All copyright reserved &copy; <b>{new Date().getFullYear()}</b>
+            {tranlate("footer.copy_right")} &copy;{" "}
+            <b>{new Date().getFullYear()}</b>
           </span>{" "}
-          | made by{" "}
+          | {tranlate("footer.made_by")}
+          {" - "}
           <a
             className="text-primary "
             href="https://atef-gad.com"

@@ -20,6 +20,9 @@ svg {
   column-gap: 3px;
   transition: 0.3s ease-in-out;
 }
+#animi__button:lang(ar) {
+  flex-direction: row-reverse;
+}
 #animi__button:hover {
   background-color: var(--second-color);
   color: var(--white-color);

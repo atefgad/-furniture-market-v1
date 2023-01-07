@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import ScrollAnimation from "../../utility/ScrollAnimation/ScrollAnimation";
 
 const Counter = () => {
+  const [tranlate] = useTranslation();
   const [days, setDays] = useState();
   const [hours, setHours] = useState();
   const [minutes, setMintutes] = useState();
@@ -41,7 +43,7 @@ const Counter = () => {
       <div className="clock__data d-flex align-items-center gap-3">
         <div className="text-center ">
           <h2 className="text-white fs-3 mb-2">{days} </h2>
-          <h5 className="text-white fs-6">Days</h5>
+          <h5 className="text-white fs-6">{tranlate("offers.days")}</h5>
         </div>
         <span className="text-white fs-3">:</span>
       </div>
@@ -49,21 +51,21 @@ const Counter = () => {
       <div className="clock__data d-flex align-items-center gap-3">
         <div className="text-center">
           <h2 className="text-white fs-3 mb-2">{hours} </h2>
-          <h5 className="text-white fs-6">Hours</h5>
+          <h5 className="text-white fs-6">{tranlate("offers.hours")}</h5>
         </div>
         <span className="text-white fs-3">:</span>
       </div>
       <div className="clock__data d-flex align-items-center gap-3">
         <div className="text-center">
           <h2 className="text-white fs-3 mb-2">{minutes} </h2>
-          <h5 className="text-white fs-6">Minutes</h5>
+          <h5 className="text-white fs-6">{tranlate("offers.minutes")}</h5>
         </div>
         <span className="text-white fs-3">:</span>
       </div>
       <div className="clock__data d-flex align-items-center gap-3">
         <div className="text-center">
           <h2 className="text-white fs-3 mb-2">{seconds} </h2>
-          <h5 className="text-white fs-6">Seconds</h5>
+          <h5 className="text-white fs-6">{tranlate("offers.seconds")}</h5>
         </div>
       </div>
     </div>

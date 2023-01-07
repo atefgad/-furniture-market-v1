@@ -17,8 +17,10 @@ import NewsLetterForm from "./NewsLetterForm";
 
 // css Styles
 import "../../styles/Home.css";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const [tranlate] = useTranslation();
   return (
     <Hemlet title="Home">
       <Animated>
@@ -38,7 +40,11 @@ const Home = () => {
                 //className=" animate__animated animate__bounce animate__delay-2s"
               >
                 <ScrollAnimation animate="fade" duration={200} delay={200}>
-                  <SectionHeading title="today's best deals" path="/shop" />
+                  <SectionHeading
+                    title={tranlate("section_head.title1")}
+                    buttonCaption={tranlate("general.view_all")}
+                    path="/shop"
+                  />
                 </ScrollAnimation>
               </Col>
               {/* Products List */}
@@ -57,7 +63,11 @@ const Home = () => {
             <Row>
               <Col lg="12">
                 <ScrollAnimation animate="fade" duration={200} delay={200}>
-                  <SectionHeading title="new chairs arravals" path="/shop" />
+                  <SectionHeading
+                    title={tranlate("section_head.title2")}
+                    buttonCaption={tranlate("general.view_all")}
+                    path="/shop"
+                  />
                 </ScrollAnimation>
               </Col>
               {/* Products List */}
@@ -81,7 +91,7 @@ const Home = () => {
                         delay={260}
                       >
                         <span className="bannar__lable">
-                          <b>new arrivals</b>
+                          <b>{tranlate("bannar.lable")} </b>
                         </span>
                       </ScrollAnimation>
                       <ScrollAnimation
@@ -90,8 +100,7 @@ const Home = () => {
                         delay={280}
                       >
                         <h3 className="bannar__title">
-                          Living furniture <br />
-                          you love
+                          {tranlate("bannar.title")}
                         </h3>
                       </ScrollAnimation>
                       <ScrollAnimation
@@ -100,7 +109,8 @@ const Home = () => {
                         delay={280}
                       >
                         <h5 className="bannar__subtitle">
-                          sale up to <span> 20% Off</span>
+                          {tranlate("bannar.sub_title")}{" "}
+                          <span> {tranlate("bannar.off")} </span>
                         </h5>
                       </ScrollAnimation>
                       <ScrollAnimation
@@ -113,7 +123,7 @@ const Home = () => {
                             className="bannar__link btn btn-outline-primary"
                             to="/shop"
                           >
-                            Shop now
+                            {tranlate("general.shop_now")}
                           </Link>
                         </div>
                       </ScrollAnimation>
@@ -129,7 +139,11 @@ const Home = () => {
               <Col lg="8" md="12">
                 <div className="mt-5 mt-lg-0">
                   <ScrollAnimation animate="fade" duration={200} delay={200}>
-                    <SectionHeading title="best seller" path="/shop" />
+                    <SectionHeading
+                      title={tranlate("section_head.title1")}
+                      buttonCaption={tranlate("general.view_all")}
+                      path="/shop"
+                    />
                   </ScrollAnimation>
                   <Row>
                     {/* Products List */}

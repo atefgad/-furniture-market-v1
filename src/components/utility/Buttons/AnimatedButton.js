@@ -26,7 +26,7 @@ const AnimatedButton = (props) => {
       </svg>
 
       <button id="animi__button">
-        {props.caption ? "Shop now " : null}
+        {props.caption ? props.caption : "Shop now "}
         <b>{props.children}</b>
         <span className="bubbles">
           <span className="bubble"></span>

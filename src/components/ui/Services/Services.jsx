@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Col, Container, Row } from "reactstrap";
 
 // css Style
@@ -7,7 +8,7 @@ import "../../../styles/Services.css";
 import ScrollAnimation from "../../utility/ScrollAnimation/ScrollAnimation";
 
 //services data
-const servicesData = [
+const servicesEn = [
   {
     icon: "ri-truck-line",
     title: "Free Shipping",
@@ -27,7 +28,30 @@ const servicesData = [
     bg: "#e2f2b2",
   },
 ];
+const servicesAr = [
+  {
+    icon: "ri-truck-line",
+    title: "الشحن المجاني",
+    subtitle: "شحن سريع وأمن",
+    bg: "#d6e5fb",
+  },
+  {
+    icon: "ri-refresh-line",
+    title: "إعادة المشتريات",
+    subtitle: "14 يوم لإعادة المشتريات",
+    bg: "#ceebe9",
+  },
+  {
+    icon: "ri-secure-payment-line",
+    title: "تسوق أمن",
+    subtitle: "بياناتك محمية دائماً",
+    bg: "#e2f2b2",
+  },
+];
+
 const Services = () => {
+  const [tranlate, i18n] = useTranslation();
+  const servicesData = i18n.language === "ar" ? servicesAr : servicesEn;
   return (
     <div className="services">
       <Container>

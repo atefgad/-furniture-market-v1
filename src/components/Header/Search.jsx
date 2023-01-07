@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import productsDatd from "../../assets/data/products";
 
 const Search = ({ toggle, setToggle }) => {
+  const [tranlate, i18n] = useTranslation();
   const [searchData, setSearchData] = useState([]);
   const searchRef = useRef(null);
 
@@ -26,7 +28,7 @@ const Search = ({ toggle, setToggle }) => {
         className="btn search__toggle__close"
         onClick={() => setToggle(!toggle)}
       >
-        <i className="ri-close-line me-1"></i> close
+        <i className="ri-close-line me-1"></i> {tranlate("general.close")}
       </button>
       <div className="search__warpper">
         <div className="wrrapper__content">
@@ -35,7 +37,7 @@ const Search = ({ toggle, setToggle }) => {
             className="search__input form-control"
             ref={searchRef}
             autoFocus
-            placeholder="Search for products..."
+            placeholder={tranlate("placeholder.search")}
             onChange={handleSearch}
           />
           <span className="search__icon">

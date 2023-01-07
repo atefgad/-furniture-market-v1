@@ -12,6 +12,9 @@
   transition: 0.3s ease-in-out;
   overflow: hidden;
 }
+.cart-button:lang(ar) {
+  direction: rtl;
+}
 .cart-button:hover {
   background-color: var(--second-color) !important;
 }
