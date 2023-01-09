@@ -1,23 +1,31 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
 import { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import { Footer, Header, Hemlet, Modal } from "../../components";
 
 import "../../styles/Account.css";
 
-const links = [
+const linksEn = [
   { path: "/account/orders", display: "My orders" },
   { path: "/account/wishlist", display: "My wishlist" },
   { path: "/account/addresses", display: "My addresses" },
   { path: "/account/profile", display: "Profile" },
 ];
 
+const LinksAr = [
+  { path: "/account/orders", display: "مشترياتى" },
+  { path: "/account/wishlist", display: "المفضلة" },
+  { path: "/account/addresses", display: "عناويني" },
+  { path: "/account/profile", display: "حسابى" },
+];
+
 const Account = () => {
-  // if (location.pathname === "/account") {
-  //   navigate("/account/orders");
-  // }
+  const [tranlate, i18n] = useTranslation();
+
+  let links = i18n.language === "en" ? linksEn : LinksAr;
   return (
-    <Hemlet title="Account">
+    <Hemlet title={tranlate("account.title")}>
       <Header />
       <section className="account__content">
         <Container>
@@ -25,7 +33,7 @@ const Account = () => {
             {/* NavTabMenu */}
             <Col lg="3">
               <div className="wrapper__tab_content card">
-                <h3 className="tab__title">Account Dashboard</h3>
+                <h3 className="tab__title">{tranlate("account.nav_title")}</h3>
                 <div className="nav_tab_menu">
                   {links.map((el, idx) => (
                     <NavLink

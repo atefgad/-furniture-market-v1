@@ -1,12 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { Col, Container, Row, UncontrolledCollapse } from "reactstrap";
-import { Hemlet, CommonSection, Animated, ProductCard } from "../../components";
+import { useTranslation } from "react-i18next";
+
+import { Hemlet, CommonSection, Animated } from "../../components";
 
 import productsData from "../../assets/data/products";
 
-import "../../styles/Shop.css";
 import Pagination from "./Pagination";
+import { GetProducts } from "../../hooks/getProducts";
+
+import "../../styles/Shop.css";
 
 const Shop = () => {
   //products
@@ -15,6 +19,8 @@ const Shop = () => {
   const [isActive, setActive] = useState(0);
   // Sidebar
   const [isVisibleSidebar, setIsVisibleSidebar] = useState(false);
+
+  const [tranlate] = useTranslation();
 
   // handle filter for products by category
   const handleFilterChange = (e) => {
@@ -95,9 +101,11 @@ const Shop = () => {
     e.preventDefault();
   };
 
+  const getProducts = GetProducts(products);
+
   return (
-    <Hemlet title="Shop">
-      <CommonSection title="shop" />
+    <Hemlet title={tranlate("general.shop_page_title")}>
+      <CommonSection title={tranlate("general.shop_page_title")} />
       <Animated>
         <Container>
           <Row className="my-3">
@@ -111,17 +119,18 @@ const Shop = () => {
               //onClick={() => setIsVisibleSidebar(!isVisibleSidebar)}
             >
               <div className="sidebar__content">
-                <h4>Product Filters</h4>
+                <h4>{tranlate("general.filters")}</h4>
                 <span
                   className="sidebar__hide_btn"
                   onClick={() => setIsVisibleSidebar(!isVisibleSidebar)}
                 >
-                  <i className="ri-close-line fs-2"></i> close
+                  <i className="ri-close-line fs-2"></i>{" "}
+                  {tranlate("general.close")}
                 </span>
                 <div className="sidebar__widget">
                   {/* WidgetAccordion Category*/}
                   <WidgetAccordion
-                    name="Category"
+                    name={tranlate("general.filter_category")}
                     togglerId="category"
                     isOpen
                     // active={isActive === 1 ? true : false}
@@ -138,13 +147,17 @@ const Shop = () => {
                   </WidgetAccordion>
 
                   {/* WidgetAccordion Price*/}
-                  <WidgetAccordion name="Price" togglerId="price" isOpen>
+                  <WidgetAccordion
+                    name={tranlate("general.filter_price")}
+                    togglerId="price"
+                    isOpen
+                  >
                     <form
                       className="widget__form__price"
                       onSubmit={handleFormPrice}
                     >
                       <input type="number" min="20" defaultValue={20} />
-                      <span>To</span>
+                      <span>{tranlate("general.filters_to")}</span>
                       <input
                         type="number"
                         min="20"
@@ -152,15 +165,14 @@ const Shop = () => {
                         defaultValue={11990}
                       />
                       <button type="submit" className="btn btn-primary">
-                        {" "}
-                        go
+                        {tranlate("general.filters_btn")}
                       </button>
                     </form>
                   </WidgetAccordion>
 
                   {/* WidgetAccordion Colors*/}
                   <WidgetAccordion
-                    name="Colors"
+                    name={tranlate("general.filter_color")}
                     togglerId="colors"
                     isOpen
                     // active={isActive === 2 ? true : false}
@@ -196,7 +208,8 @@ const Shop = () => {
                         className="btn sidebar__toggler__btn"
                         onClick={() => setIsVisibleSidebar(!isVisibleSidebar)}
                       >
-                        <i className="ri-menu-3-fill"></i> filter
+                        <i className="ri-menu-3-fill"></i>{" "}
+                        {tranlate("general.filters")}
                       </button>
                     </div>
 
@@ -253,8 +266,8 @@ const Shop = () => {
                   </div>
                 </Col>
                 {/* Products */}
-                {products.length > 0 ? (
-                  <Pagination data={products} />
+                {getProducts.length > 0 ? (
+                  <Pagination data={getProducts} />
                 ) : (
                   <div className="mt-5">
                     <h2>No Products are found</h2>

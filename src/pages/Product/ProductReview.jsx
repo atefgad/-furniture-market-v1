@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import images from "../../constants";
 import ReviewForm from "./ReviewForm";
 
-const ProductReview = ({ reviews, productName }) => {
+const ProductReview = ({ reviews, productName, lang }) => {
   const { user } = useAuth();
   return (
     <div className="review__wrapper">
@@ -24,7 +24,10 @@ const ProductReview = ({ reviews, productName }) => {
                 {reviews?.map((item, index) => (
                   <div className="review__item" key={index}>
                     <div className="review__user_icon">
-                      <img src={images.userIcon} alt={item.text} />
+                      <img
+                        src={images.userIcon}
+                        alt={lang ? item.text_ar : item.text}
+                      />
                     </div>
                     <div>
                       <h6>atef gad</h6>
@@ -33,7 +36,7 @@ const ProductReview = ({ reviews, productName }) => {
                         {/* <i className="ri-star-line"></i> */}
                       </span>
                       <span>{item.rating}</span>
-                      <p>{item.text}</p>
+                      <p>{lang ? item.text_ar : item.text}</p>
                     </div>
                   </div>
                 ))}

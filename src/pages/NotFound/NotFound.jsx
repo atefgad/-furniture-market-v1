@@ -1,17 +1,17 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import "../../styles/NotFound.css";
 
 const NotFound = () => {
+  const [tranlate, i18n] = useTranslation();
+
   return (
     <div className="page404">
       <div className="text">
-        <h2>Sorry, page not found!</h2>
-        <p>
-          Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve
-          mistyped the URL? Be sure to check your spelling.
-        </p>
+        <h2>{tranlate("notFound.404_title")}</h2>
+        <p>{tranlate("notFound.404_desc")}</p>
       </div>
       <div className="wrapper_404">
         <div class="text_top">404</div>
@@ -21,7 +21,7 @@ const NotFound = () => {
       </div>
       <div className="bottom mt-2">
         <Link to="/" className="btn btn-lg btn-primary rounded-0">
-          Back to Home
+          {tranlate("notFound.404_button")}
         </Link>
       </div>
     </div>

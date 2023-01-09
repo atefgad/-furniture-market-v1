@@ -137,6 +137,9 @@
   justify-content: space-between;
   margin: 30px 0;
 }
+.checkout__page .checkout__navigate__bottom:lang(ar) {
+  flex-direction: row-reverse;
+}
 .checkout__page .checkout__navigate__bottom button {
   display: flex;
   align-items: center;
@@ -426,6 +429,9 @@
   }
 }
 @media (max-width: 768px) {
+  .checkout__header .checkout__header__wrapper {
+    flex-direction: column;
+  }
   .__card__tap .card__btn {
     column-gap: 0;
     font-size: 0.8rem;

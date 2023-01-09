@@ -13,8 +13,10 @@ import { Animated, Hemlet } from "../../../components";
 import { db } from "../../../firebase.config";
 import useAuth from "../../../hooks/useAuth";
 import Order from "./Order";
+import { useTranslation } from "react-i18next";
 
 const Orders = () => {
+  const [tranlate] = useTranslation();
   const [orders, setOrders] = useState([]);
   const { user } = useAuth();
 
@@ -34,14 +36,16 @@ const Orders = () => {
   }, [user]);
 
   return (
-    <Hemlet title="Orders">
+    <Hemlet title={tranlate("account.orders")}>
       <Animated>
         <Container>
-          <h4>Orders:</h4>
+          <h4>{tranlate("account.orders")}:</h4>
           {orders.length > 0 && (
             <p>
-              <span className="fw-600">{orders.length} orders</span> placed in
-              past months
+              <span className="fw-600">
+                {orders.length} {tranlate("account.orders2")}
+              </span>{" "}
+              {tranlate("account.placed_in_past_months")}
             </p>
           )}
 
@@ -54,9 +58,9 @@ const Orders = () => {
                   <p>
                     <i className="ri-dropbox-fill fs-1"></i>
                   </p>
-                  <p className="fs-1">No orders yet</p>
+                  <p className="fs-1">{tranlate("account.no_orders_yet")}</p>
                   <Link to="/shop" className="btn btn-primary btn-lg mt-3">
-                    make your first order
+                    {tranlate("account.make_your_first_order")}
                   </Link>
                 </div>
               )}

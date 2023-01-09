@@ -23,11 +23,14 @@ import toast from "react-hot-toast";
 
 import "../../styles/Signup.css";
 import useAuth from "../../hooks/useAuth";
+import { useTranslation } from "react-i18next";
 
 const Signup = () => {
   const [file, setFile] = useState(null);
   const [imgPreview, setImgPreview] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const [tranlate] = useTranslation();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -70,7 +73,7 @@ const Signup = () => {
 
       uploadTask.on(
         () => {
-          toast.error("profile image not uoploaded");
+          toast.error(tranlate("general.profile_img_msg"));
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -107,18 +110,18 @@ const Signup = () => {
       );
 
       setLoading(false);
-      toast.success("account created successfully");
+      toast.success(tranlate("general.signup_msg"));
       handleLogout();
     } catch (error) {
       setLoading(false);
       setImgPreview(null);
-      toast.error("something went wrong!");
+      toast.error(tranlate("general.signup_error_msg"));
     }
   };
 
   return (
-    <Hemlet title="Signup">
-      <CommonSection title="Signup" />
+    <Hemlet title={tranlate("general.signup_page_title")}>
+      <CommonSection title={tranlate("general.signup_page_title")} />
       <Animated>
         <Container>
           <Row className="my-5">
@@ -151,7 +154,9 @@ const Signup = () => {
                         ) : null}
                       </label>
                     </div>
-                    <span className="fs-5 text-muted">Profile Photo</span>
+                    <span className="fs-5 text-muted">
+                      {tranlate("general.profile_img")}
+                    </span>
                   </div>
                   {/* First && Last name */}
                   <FormGroup className="form__group">
@@ -161,11 +166,17 @@ const Signup = () => {
                           errors.firstName && "border-danger"
                         } `}
                         type="text"
-                        placeholder="First name"
+                        placeholder={tranlate("placeholder.first_name")}
                         {...register("firstName", {
-                          required: "First Name is required",
-                          minLength: { value: 3, message: "Min length is 3" },
-                          maxLength: { value: 10, message: "Max length is 10" },
+                          required: tranlate("required.first_name"),
+                          minLength: {
+                            value: 3,
+                            message: tranlate("required.min_3"),
+                          },
+                          maxLength: {
+                            value: 15,
+                            message: tranlate("required.max_15"),
+                          },
                         })}
                       />
                       <p className="text-danger">
@@ -179,11 +190,17 @@ const Signup = () => {
                           errors.lastrName && "border-danger"
                         } `}
                         type="text"
-                        placeholder="Last name"
+                        placeholder={tranlate("placeholder.last_name")}
                         {...register("lastName", {
-                          required: "last Name is required",
-                          minLength: { value: 3, message: "Min length is 3" },
-                          maxLength: { value: 10, message: "Max length is 10" },
+                          required: tranlate("required.last_name"),
+                          minLength: {
+                            value: 3,
+                            message: tranlate("required.min_3"),
+                          },
+                          maxLength: {
+                            value: 15,
+                            message: tranlate("required.max_15"),
+                          },
                         })}
                       />
                       <p className="text-danger">
@@ -200,9 +217,9 @@ const Signup = () => {
                           errors.email && "border-danger"
                         } `}
                         type="text"
-                        placeholder="Email"
+                        placeholder={tranlate("placeholder.email")}
                         {...register("email", {
-                          required: "Email is required",
+                          required: tranlate("required.email"),
                         })}
                       />
                       <p className="text-danger">
@@ -216,11 +233,17 @@ const Signup = () => {
                           errors.userName && "border-danger"
                         } `}
                         type="text"
-                        placeholder="Username"
+                        placeholder={tranlate("placeholder.username")}
                         {...register("userName", {
-                          required: "Username is required",
-                          minLength: { value: 3, message: "Min length is 3" },
-                          maxLength: { value: 15, message: "Max length is 15" },
+                          required: tranlate("required.username"),
+                          minLength: {
+                            value: 3,
+                            message: tranlate("required.min_3"),
+                          },
+                          maxLength: {
+                            value: 15,
+                            message: tranlate("required.max_15"),
+                          },
                         })}
                       />
                       <p className="text-danger">
@@ -237,9 +260,9 @@ const Signup = () => {
                           errors.password && "border-danger"
                         } `}
                         type="password"
-                        placeholder="password"
+                        placeholder={tranlate("placeholder.password")}
                         {...register("password", {
-                          required: "Password is required",
+                          required: tranlate("required.password"),
                         })}
                       />
                       <p className="text-danger fs-6">
@@ -253,14 +276,14 @@ const Signup = () => {
                     className="btn btn-primary mt-0 mb-3 w-50 "
                     //disabled={errors ? "true" : "false"}
                   >
-                    Signup
+                    {tranlate("general.signup_new")}
                   </button>
                 </Form>
 
                 <p>
-                  Do you have an account?
+                  {tranlate("general.do_you_have_an_account")}
                   <Link to="/login" className="">
-                    <b> Login now</b>
+                    <b> {tranlate("general.login_now")}</b>
                   </Link>
                 </p>
               </Col>

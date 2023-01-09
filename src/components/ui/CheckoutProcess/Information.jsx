@@ -1,18 +1,20 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Form, FormGroup } from "reactstrap";
+import { FormGroup } from "reactstrap";
 import { countryList } from "../../../assets/data/countries";
 import { CheckoutButton } from "../..";
 import useAuth from "../../../hooks/useAuth";
 import { changeCheckoutProcess } from "../../../store/slices/cartSlice";
 import { useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { addShippingAddress } from "../../../store/slices/userSlice";
+import { useTranslation } from "react-i18next";
 
 const Information = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [tranlate] = useTranslation();
 
   const { user } = useAuth();
 
@@ -64,30 +66,32 @@ const Information = () => {
   return (
     <div className="mt-3">
       <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <h5 className="mb-2">Contact information</h5>
+        <h5 className="mb-2">{tranlate("checkout.contact_information")}</h5>
         <FormGroup className="form__group align-items-center">
-          <span>Email: </span>
+          <span>{tranlate("checkout.email")}: </span>
           <input
             className={`form-control ${errors.email && "input-danger"} `}
             type="email"
             defaultValue={user?.email}
-            placeholder="enter your email"
+            placeholder={tranlate("placeholder.email")}
             {...register("email", {
-              required: "email is required",
+              required: tranlate("required.email"),
             })}
           />
         </FormGroup>
-        <h5 className="mb-2">Shipping address</h5>
+        <h5 className="mb-2">{tranlate("checkout.shipping_addres")}</h5>
         <FormGroup className="form__group">
           <input
             className={`form-control ${errors.firstName && "input-danger"} `}
             type="text"
             placeholder={
-              errors.firstName ? errors.firstName.message : "first name"
+              errors.firstName
+                ? errors.firstName.message
+                : tranlate("placeholder.first_name")
             }
             {...register("firstName", {
-              required: "first name is required",
-              minLength: { value: 3, message: "min length is 3" },
+              required: tranlate("required.first_name"),
+              minLength: { value: 3, message: tranlate("required.min_3") },
             })}
           />
 
@@ -95,11 +99,13 @@ const Information = () => {
             className={`form-control ${errors.lastName && "input-danger"} `}
             type="text"
             placeholder={
-              errors.lastName ? errors.lastName.message : "last name"
+              errors.lastName
+                ? errors.lastName.message
+                : tranlate("placeholder.last_name")
             }
             {...register("lastName", {
-              required: "last name is required",
-              minLength: { value: 3, message: "min length is 3" },
+              required: tranlate("required.last_name"),
+              minLength: { value: 3, message: tranlate("required.min_3") },
             })}
           />
         </FormGroup>
@@ -112,9 +118,11 @@ const Information = () => {
             defaultValue={"Egypt"}
             {...register("country", { required: "country is required" })}
           >
-            <option disabled>
+            {/*
+          <option disabled>
               {errors.address ? "country is required" : "country"}
             </option>
+          */}
             {countryList.map((country, idx) => (
               <option key={idx} value={country}>
                 {country}
@@ -126,15 +134,19 @@ const Information = () => {
           <input
             className={`form-control ${errors.address && "input-danger"} `}
             type="text"
-            placeholder={errors.address ? errors.address.message : "address"}
+            placeholder={
+              errors.address
+                ? errors.address.message
+                : tranlate("placeholder.address")
+            }
             {...register("address", {
-              required: "address is required",
+              required: tranlate("required.address"),
             })}
           />
           <input
             className="form-control"
             type="text"
-            placeholder="Apartment, suite, etc. (optional)"
+            placeholder={tranlate("placeholder.address2")}
             {...register("address2", { required: false })}
           />
         </FormGroup>
@@ -143,9 +155,11 @@ const Information = () => {
           <input
             className={`form-control ${errors.city && "input-danger"} `}
             type="text"
-            placeholder={errors.city ? errors.city.message : "city"}
+            placeholder={
+              errors.city ? errors.city.message : tranlate("placeholder.city")
+            }
             {...register("city", {
-              required: "city is required",
+              required: tranlate("required.city"),
             })}
           />
 
@@ -153,10 +167,12 @@ const Information = () => {
             className={`form-control ${errors.governorate && "input-danger"} `}
             type="text"
             placeholder={
-              errors.governorate ? errors.governorate.message : "governorate"
+              errors.governorate
+                ? errors.governorate.message
+                : tranlate("placeholder.governorate")
             }
             {...register("governorate", {
-              required: "governorate is required",
+              required: tranlate("required.governorate"),
             })}
           />
         </FormGroup>
@@ -165,17 +181,24 @@ const Information = () => {
           <input
             className="form-control"
             type="number"
-            placeholder="Postal code (optional)"
+            placeholder={tranlate("placeholder.postal_code")}
             {...register("postal", { required: false })}
           />
           <input
             className={`form-control ${errors.phone && "input-danger"} `}
             type="tel"
-            placeholder={errors.phone ? errors.phone.message : "Phone number"}
+            placeholder={
+              errors.phone
+                ? errors.phone.message
+                : tranlate("placeholder.phone_number")
+            }
             {...register("phone", {
-              required: "Phone number is required",
-              minLength: { value: 10, message: "min length number is 10" },
-              maxLength: { value: 15, message: "max length number is 15" },
+              required: tranlate("required.phone_number"),
+              // minLength: { value: 10, message: "min length number is 10" },
+              maxLength: {
+                value: 15,
+                message: tranlate("required.max_15"),
+              },
             })}
           />
         </FormGroup>
@@ -186,19 +209,19 @@ const Information = () => {
               id="l1"
               {...register("isDefaultAddress", { required: false })}
             />
-            <span>set it as a default address</span>
+            <span>{tranlate("checkout.primary_address")}</span>
           </label>
         </p>
 
         <div className="checkout__navigate__bottom">
           <CheckoutButton
-            lable="Return to cart"
+            lable={tranlate("checkout.return_to_cart")}
             className="btn"
             icon={<i className="ri-arrow-left-s-line"></i>}
             onClick={handleBackToCart}
           />
           <CheckoutButton
-            lable="Continue to shipping"
+            lable={tranlate("checkout.continue_to_shipping")}
             icon={<i className="ri-truck-line"></i>}
             type="submit"
             disabled={!isDirty && !isValid}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckoutButton } from "../../../../components";
 import {
@@ -11,6 +12,8 @@ import ShipItem from "./ShipItem";
 const Shipping = () => {
   const { user } = useSelector((state) => state.user);
   const { shipping } = useSelector((state) => state.cart);
+
+  const [tranlate] = useTranslation();
 
   const dispatch = useDispatch();
 
@@ -26,26 +29,26 @@ const Shipping = () => {
     dispatch(shippingMethod(inputVal));
   };
 
-  const ReanderShippingMethodItem = ({ lable, value, onChange }) => {
-    return (
-      <div className="shipping__method__row">
-        <div className="__option">
-          <label>
-            <input
-              type="radio"
-              name="shippingmethod"
-              value={value}
-              onChange={onChange}
-            />{" "}
-            {lable}
-          </label>
-        </div>
-        <div className="me-3 fw-500">
-          {value === 0 ? <span>free</span> : <span>${value}</span>}
-        </div>
-      </div>
-    );
-  };
+  // const ReanderShippingMethodItem = ({ lable, value, onChange }) => {
+  //   return (
+  //     <div className="shipping__method__row">
+  //       <div className="__option">
+  //         <label>
+  //           <input
+  //             type="radio"
+  //             name="shippingmethod"
+  //             value={value}
+  //             onChange={onChange}
+  //           />{" "}
+  //           {lable}
+  //         </label>
+  //       </div>
+  //       <div className="me-3 fw-500">
+  //         {value === 0 ? <span>free</span> : <span>${value}</span>}
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   const selected = user.addresses[0];
 
@@ -54,12 +57,12 @@ const Shipping = () => {
       <section className="shipping__contact__info">
         <div className="shipping__contact__wrapper">
           <ShipItem
-            lable="contact"
+            lable={tranlate("checkout.contact")}
             value={`${selected.firstName} ${selected.lastName} - (${selected.email})`}
             onClick={() => dispatch(changeCheckoutProcess(1))}
           />
           <ShipItem
-            lable="Ship to"
+            lable={tranlate("checkout.ship_to")}
             value={`${selected.address}, ${selected.governorate}, ${selected.city}, ${selected.country}`}
             onClick={() => dispatch(changeCheckoutProcess(1))}
           />
@@ -67,7 +70,7 @@ const Shipping = () => {
       </section>
 
       <section className="shipping__method">
-        <h5 className="mb-2">Shipping method</h5>
+        <h5 className="mb-2">{tranlate("checkout.shipping_method")}</h5>
 
         <div className="shipping__method__wrapper">
           <div className="shipping__method__row">
@@ -81,11 +84,11 @@ const Shipping = () => {
                   checked={shipping === 0}
                   onChange={handleChange}
                 />{" "}
-                basic shipping
+                {tranlate("checkout.basic_shipping")}
               </label>
             </div>
             <div className="me-3 fw-500">
-              <span>free</span>
+              <span>{tranlate("checkout.free")}</span>
             </div>
           </div>
           <div className="shipping__method__row">
@@ -99,7 +102,7 @@ const Shipping = () => {
                   checked={shipping === 25}
                   onChange={handleChange}
                 />{" "}
-                Premium shipping with tracking
+                {tranlate("checkout.Premium_shipping")}
               </label>
             </div>
             <div className="me-3 fw-500">
@@ -111,13 +114,13 @@ const Shipping = () => {
 
       <div className="checkout__navigate__bottom">
         <CheckoutButton
-          lable="Return to information"
+          lable={tranlate("checkout.return_to_information")}
           className="btn"
           icon={<i className="ri-arrow-left-s-line"></i>}
           onClick={handleBackButton}
         />
         <CheckoutButton
-          lable="Continue to payment"
+          lable={tranlate("checkout.continue_to_payment")}
           icon={<i className="ri-bank-card-line"></i>}
           onClick={handleNextButton}
         />

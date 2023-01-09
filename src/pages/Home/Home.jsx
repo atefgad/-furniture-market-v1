@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "reactstrap";
+import { useTranslation } from "react-i18next";
 import {
   Hemlet,
   ProductsList,
@@ -17,7 +18,6 @@ import NewsLetterForm from "./NewsLetterForm";
 
 // css Styles
 import "../../styles/Home.css";
-import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const [tranlate] = useTranslation();

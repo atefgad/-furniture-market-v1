@@ -20,12 +20,15 @@ import images from "../../constants";
 // styles
 import "../../styles/Checkout.css";
 import { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const Checkout = () => {
   const { totalAmount, checkoutProcess } = useSelector((state) => state.cart);
 
   const [formStep, setFormStep] = useState(0);
   const [hide, setHide] = useState(false);
+
+  const [tranlate] = useTranslation();
 
   const nextFormStep = () => {
     setFormStep((current) => current + 1);
@@ -61,7 +64,7 @@ const Checkout = () => {
   };
 
   return (
-    <Hemlet title="Checkout">
+    <Hemlet title={tranlate("checkout.title")}>
       {/* <CommonSection title="Checkout" /> */}
       <div className={`checkout__page ${hide ? "isActive" : ""}`}>
         <div className="checkout__page__left">
@@ -70,7 +73,7 @@ const Checkout = () => {
             <Container>
               <ScrollAnimation animate="fade-up" duration={200}>
                 <div className="checkout__header__wrapper">
-                  <h1>Checkout</h1>
+                  <h1>{tranlate("checkout.title")}</h1>
                   <img
                     className="checkout__header__cards__img"
                     src={images.paymentsCards}
@@ -83,7 +86,8 @@ const Checkout = () => {
           {/* show order summary  */}
           <div className="order__summary__toggle" onClick={() => setHide(true)}>
             <span className="order__summary__btn">
-              <i className="ri-arrow-left-line"></i> show order summary
+              <i className="ri-arrow-left-line"></i>{" "}
+              {tranlate("checkout.show_order_summary")}
             </span>
             <CurrencyFormat
               renderText={(val) => <span className="fw-bold">{val}</span>}
@@ -97,19 +101,19 @@ const Checkout = () => {
           {/* Steps/Head */}
           <div className="steps">
             <StepItem
-              name="information"
+              name={tranlate("checkout.information")}
               count={1}
               icon="ri-information-line"
               isActive={checkoutProcess >= 1 ? true : false}
             />
             <StepItem
-              name="shipping"
+              name={tranlate("checkout.shipping")}
               count={2}
               icon="ri-map-pin-line"
               isActive={checkoutProcess >= 2 ? true : false}
             />
             <StepItem
-              name="payment"
+              name={tranlate("checkout.payment")}
               count={3}
               icon="ri-bank-card-line"
               isActive={checkoutProcess >= 3 ? true : false}

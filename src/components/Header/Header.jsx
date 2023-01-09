@@ -34,7 +34,7 @@ const Header = () => {
 
   const [scrolled, setScrolled] = useState(false);
 
-  const [tranlate, i18n] = useTranslation();
+  const [tranlate] = useTranslation();
 
   const { user, logout } = useAuth();
   const { cartItems } = useSelector((state) => state.cart);
@@ -48,7 +48,7 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(LOGOUT());
     logout();
-    toast.success("logged out successfully");
+    toast.success(tranlate("general.logout_msg"));
     navigate("/home");
   };
 
@@ -111,49 +111,25 @@ const Header = () => {
                   ) : null}
                 </span>
 
-                {/* language - dropdwon 
-                <div className="lang-container">
-                  <UncontrolledDropdown>
-                    <DropdownToggle className="lang-icon" tag="a">
-                      <motion.img
-                        whileTap={{ scale: 1.1 }}
-                        src={images.en}
-                        alt="language"
-                      />
-
-                      <span>En</span>
-                    </DropdownToggle>
-                    {/* dropdown__menu 
-                    <DropdownMenu className="dropdown__menu">
-                      <DropdownItem>
-                        <img src={images.en} alt="German" />
-                        <a href="#!">German</a>
-                      </DropdownItem>
-
-                      <DropdownItem>
-                        <img src={images.en} alt="French" />
-                        <a href="#!">French</a>
-                      </DropdownItem>
-                    </DropdownMenu>
-                  </UncontrolledDropdown>
-                </div>
-                */}
-
                 {/* user icon - dropdwon */}
                 <UncontrolledDropdown className="user__container">
                   <DropdownToggle className="user__icon" caret>
-                    <div className="user__info me-2">
+                    <div className="user__info mx-1">
                       {user !== null ? (
                         <p className="user__caption">
-                          Hello{" "}
+                          {tranlate("general.hello")}{" "}
                           <strong className="text-primary">
                             {user.displayName}
                           </strong>
                         </p>
                       ) : (
-                        <p className="user__caption">login/register</p>
+                        <p className="user__caption">
+                          {tranlate("general.login_register")}
+                        </p>
                       )}
-                      <b className="user__text">My Account </b>
+                      <b className="user__text">
+                        {tranlate("general.my_account")}{" "}
+                      </b>
                     </div>
                     <motion.img
                       whileHover={{ scale: 1.2 }}
@@ -170,30 +146,41 @@ const Header = () => {
                   {user ? (
                     <DropdownMenu className="dropdown__menu">
                       <DropdownItem>
-                        <Link to="/account/profile"> My profile</Link>
+                        <Link to="/account/profile">
+                          {tranlate("general.my_profile")}
+                        </Link>
                       </DropdownItem>
                       <DropdownItem>
-                        <Link to="/account"> My Orders</Link>
+                        <Link to="/account/orders">
+                          {" "}
+                          {tranlate("general.my_orders")}
+                        </Link>
                       </DropdownItem>
                       <DropdownItem>
-                        <Link to="/account/addresses"> My Addresses</Link>
+                        <Link to="/account/addresses">
+                          {" "}
+                          {tranlate("general.my_addresses")}
+                        </Link>
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem onClick={handleLogout}>
-                        <i className="ri-logout-circle-line"></i> Logout
+                        <i className="ri-logout-circle-line"></i>{" "}
+                        {tranlate("general.logout")}
                       </DropdownItem>
                     </DropdownMenu>
                   ) : (
                     <DropdownMenu className="dropdown__menu">
                       <DropdownItem>
                         <i className="ri-login-circle-line"></i>
-                        <Link to="/login">Login</Link>
+                        <Link to="/login">{tranlate("general.login")}</Link>
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>
                         <i className="ri-user-received-line"></i>
 
-                        <Link to="/signup">Signup</Link>
+                        <Link to="/signup">
+                          {tranlate("general.signup_new")}
+                        </Link>
                       </DropdownItem>
                     </DropdownMenu>
                   )}

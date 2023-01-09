@@ -1,5 +1,6 @@
 // Css Style
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./PaymentCard.css";
 
 function cc_format(value) {
@@ -19,6 +20,8 @@ function cc_format(value) {
 function PaymentCard() {
   const [cardVal, setCardVal] = useState("");
 
+  const [tranlate] = useTranslation();
+
   const onChange = (e) => {
     setCardVal(e.target.value);
   };
@@ -34,7 +37,7 @@ function PaymentCard() {
               type="text"
               className="form-control"
               autoFocus
-              placeholder="Cardholder name"
+              placeholder={tranlate("placeholder.card_name")}
             />
           </div>
         </div>
@@ -46,7 +49,7 @@ function PaymentCard() {
             <input
               type="text"
               className="form-control"
-              placeholder="card number"
+              placeholder={tranlate("placeholder.card_number")}
               value={cc_format(cardVal)}
               onChange={onChange}
             />
@@ -61,7 +64,7 @@ function PaymentCard() {
               <input
                 type="number"
                 className="form-control"
-                placeholder="Expiration date (MM / YY)"
+                placeholder={tranlate("placeholder.expiration_date")}
               />
             </div>
           </div>
@@ -73,14 +76,17 @@ function PaymentCard() {
               <input
                 type="number"
                 className="form-control"
-                placeholder="Security code(CVV)"
+                placeholder={tranlate("placeholder.cvv")}
               />
             </div>
           </div>
         </div>
         <span className="text-muted certificate-text">
           <i className="ri-lock-line me-1"></i>
-          Your transaction is secured with ssl certificate
+
+          {tranlate(
+            "checkout.Your_transaction_is_secured_with_ssl_certificate"
+          )}
         </span>
       </div>
       {/* <button className="btn btn-primary fw-bold">Pay now</button> */}

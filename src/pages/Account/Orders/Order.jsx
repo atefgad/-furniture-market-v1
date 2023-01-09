@@ -7,23 +7,25 @@ import {
   UncontrolledPopover,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Order = ({ order }) => {
-  
+  const [tranlate] = useTranslation();
+
   return (
     <AccordionItem className="order" key={order.id}>
       <AccordionHeader targetId={order.id} className="order__head" tag="div">
         <div className="head__left">
           <div className="head__left_item">
-            <span>ORDER PLACED</span>
+            <span>{tranlate("account.order_placed")}</span>
             <small>{order.data.created}</small>
           </div>
           <div className="head__left_item">
-            <span>TOTAL</span>
+            <span>{tranlate("account.total")}</span>
             <small>${order.data.amount}</small>
           </div>
           <div className="head__left_item">
-            <span>SHIP TO</span>
+            <span>{tranlate("account.ship_to")}</span>
             <a href="#!" id="e3">
               {order.data.adressDetails.firstName +
                 " " +
@@ -48,7 +50,8 @@ const Order = ({ order }) => {
                 <small>{order.data.adressDetails.city}</small>
                 <small>{order.data.adressDetails.country}</small>
                 <small>
-                  Phone: <tel>{order.data.adressDetails.phone}</tel>
+                  {tranlate("account.phone")}:{" "}
+                  <tel>{order.data.adressDetails.phone}</tel>
                 </small>
               </PopoverBody>
             </UncontrolledPopover>
@@ -56,16 +59,20 @@ const Order = ({ order }) => {
         </div>
         <div className="head__right">
           <div className="head__right_item text-center">
-            <span>ORDER #{order.id}</span>
-            <a href="#!">View details</a>
+            <span>
+              {tranlate("account.order_number")} #{order.id}
+            </span>
+            <a href="#!">{tranlate("account.view_details")}</a>
           </div>
         </div>
       </AccordionHeader>
       <AccordionBody accordionId={order.id} className="order__body">
         <div className="w-100">
           <div className="d-flex justify-content-between align-items-center mb-2">
-            <h5>order items:</h5>
-            <button className="btn btn-primary">track order</button>
+            <h5>{tranlate("account.order_items")}:</h5>
+            <button className="btn btn-primary">
+              {tranlate("account.order_track")}
+            </button>
           </div>
           <div>
             {order.data.basket.map((el, idx) => (

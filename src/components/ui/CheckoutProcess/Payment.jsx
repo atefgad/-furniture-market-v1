@@ -13,7 +13,7 @@ import {
 } from "../../../store/slices/cartSlice";
 import { closeModal, openModal } from "../../../store/slices/modalSlice";
 
-import { v4 as uuid } from "uuid";
+import { useTranslation } from "react-i18next";
 
 // genrate order Number
 const generateSerial = () => {
@@ -32,6 +32,8 @@ const Payment = () => {
     (state) => state.cart
   );
   const addresses = useSelector((state) => state.user.user.addresses);
+
+  const [tranlate] = useTranslation();
 
   const { user } = useAuth();
 
@@ -74,15 +76,21 @@ const Payment = () => {
   const RenderCard = () => {
     return (
       <div className="Credit__card">
-        <p className="mt-3 mb-2">enter your Credit Card details</p>
+        <p className="mt-3 mb-2">
+          {tranlate("checkout.enter_your_Credit_Card_details")}
+        </p>
         <hr className="border-top border-2 mt-0" />
 
         {/* Credit Card */}
         <PaymentCard />
         <div className="payment__price__holder mt-3">
-          <small>you will pay:</small>
+          <small>{tranlate("checkout.you_will_pay")}:</small>
           <CurrencyFormat
-            renderText={(val) => <h5>Oredr Total: {val}</h5>}
+            renderText={(val) => (
+              <h5>
+                {tranlate("checkout.oredr_total")}: {val}
+              </h5>
+            )}
             fixedDecimalScale={true}
             decimalScale={2}
             value={totalAmount + shipping}
@@ -98,27 +106,27 @@ const Payment = () => {
   const RenderCash = () => {
     return (
       <div className="cash__card text-center">
-        <p className="fs-4">
-          place order now and pay <strong>cash</strong> later!
-        </p>
+        <p className="fs-4">{tranlate("checkout.pay_with_cash_content")}</p>
       </div>
     );
   };
   return (
     <div className="payment__container">
-      <h5 className="mb-3">Choose payment method</h5>
+      <h5 className="mb-3">{tranlate("checkout.choose_payment_method")}</h5>
 
       <div className="__card__taps__container">
         <div className={`__card__tap ${isActive === "card" ? "active" : ""}`}>
           <button className="card__btn" onClick={() => setActive("card")}>
-            Pay with <i className="ri-visa-fill"></i>
-            {" or "}
+            {tranlate("checkout.pay_with")}{" "}
+            <i className="ri-visa-fill mx-1"></i>
+            {tranlate("checkout.or")}
             <i className="ri-mastercard-fill"></i>
           </button>
         </div>
         <div className={`__card__tap ${isActive === "cash" ? "active" : ""}`}>
           <button className="card__btn" onClick={() => setActive("cash")}>
-            Pay with cash <i className="ri-currency-fill ms-2"></i>
+            {tranlate("checkout.pay_with_cash")}{" "}
+            <i className="ri-currency-fill ms-2"></i>
           </button>
         </div>
       </div>
@@ -132,13 +140,13 @@ const Payment = () => {
 
       <div className="checkout__navigate__bottom">
         <CheckoutButton
-          lable="Return to shipping"
+          lable={tranlate("checkout.return_to_shipping")}
           className="btn"
           icon={<i className="ri-arrow-left-s-line"></i>}
           onClick={handleBackButton}
         />
         <CheckoutButton
-          lable="Complete order"
+          lable={tranlate("checkout.complete_order")}
           icon={<i className="ri-shield-check-line"></i>}
           onClick={handlePaymentSubmit}
         />

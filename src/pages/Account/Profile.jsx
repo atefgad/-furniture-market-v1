@@ -1,22 +1,21 @@
 import { Container, Row, Col, Form, FormGroup } from "reactstrap";
-import { useNavigate, useLocation } from "react-router-dom";
 import { Animated, Hemlet } from "../../components";
 import { toast } from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import { logout as LOGOUT } from "../../store/slices/userSlice.js";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 const Profile = () => {
+  const [tranlate, i18n] = useTranslation();
   const { user, logout } = useAuth();
 
-  let location = useLocation();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleLogout = () => {
     dispatch(LOGOUT());
     logout();
-    toast.success("logged out successfully");
+    toast.success(tranlate("general.logout_msg"));
   };
 
   const handleSubmit = (e) => {
@@ -50,62 +49,66 @@ const Profile = () => {
               </div>
             </Col>
             <Col lg="12" md="12" className="">
-              <h5 className="mb-3">Edit your account information</h5>
+              <h5 className="mb-3">
+                {tranlate("account.edit_your_account_information")}
+              </h5>
               <Form onSubmit={handleSubmit}>
                 <FormGroup className="form__group">
                   <input
                     className="form-control"
                     type="text"
-                    placeholder="first name"
+                    placeholder={tranlate("placeholder.first_name")}
                   />
 
                   <input
                     className="form-control"
                     type="text"
-                    placeholder="last name"
+                    placeholder={tranlate("placeholder.last_name")}
                   />
                   <input
                     className="form-control"
                     type="number"
-                    placeholder="Phone number"
+                    placeholder={tranlate("placeholder.phone_number")}
                   />
                 </FormGroup>
                 <FormGroup className="form__group">
                   <input
                     className="form-control"
                     type="email"
-                    placeholder="email address"
+                    value={user?.email}
+                    placeholder={tranlate("placeholder.email")}
+                    disabled="true"
                   />
 
                   <input
                     className="form-control"
                     type="text"
-                    placeholder="street address"
+                    placeholder={tranlate("placeholder.address")}
                   />
                 </FormGroup>
                 <FormGroup className="form__group">
                   <input
                     className="form-control"
                     type="text"
-                    placeholder="City"
+                    placeholder={tranlate("placeholder.city")}
                   />
 
                   <input
                     className="form-control"
                     type="number"
-                    placeholder="Postal code"
+                    placeholder={tranlate("placeholder.postal_code")}
                   />
 
                   <input
                     className="form-control"
                     type="text"
-                    placeholder="Country"
+                    placeholder={tranlate("placeholder.country")}
                   />
                 </FormGroup>
 
                 <div className="text-end">
                   <button className="btn btn-primary" type="submit">
-                    Save Changes
+                    {tranlate("general.save_changes")}
                   </button>
                 </div>
               </Form>

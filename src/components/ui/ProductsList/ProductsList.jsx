@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import { Col } from "reactstrap";
-import { GetProductsByCat } from "../../../hooks/getProducts";
+import { GetProducts, GetProductsByCat } from "../../../hooks/getProducts";
 import ScrollAnimation from "../../utility/ScrollAnimation/ScrollAnimation";
 
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductsList = (props) => {
   const [items] = GetProductsByCat(props.category);
+
   const products = items.slice(0, 4);
+
+  // const products = GetProducts(items);
 
   return (
     <>

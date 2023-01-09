@@ -66,12 +66,6 @@
   border-left: 20px solid var(--primary-color);
   border-bottom: 15px solid transparent;
 }
-.wrapper__tab_content .link_active:lang(ar)::after {
-  left: -10px;
-  right: unset;
-  border-right: 20px solid var(--primary-color);
-  border-left: none;
-}
 
 /*** Addresses Styles ***/
 .address__card {
@@ -196,6 +190,7 @@
 .order__head .head__left .head__left_item {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 .order__head .head__left .head__left_item span {
   font-size: 14px;
@@ -204,7 +199,8 @@
 }
 .order__head .head__left .head__left_item small {
   font-size: 14px;
-  color: var(gray-5);
+  color: var(second-color);
+  direction: ltr;
 }
 .order__head .head__left .head__left_item a {
   font-size: 14px;
@@ -281,6 +277,14 @@
   width: 100%;
 }
 
+@media (min-width: 992px) {
+  .wrapper__tab_content .link_active:lang(ar)::after {
+    left: -10px;
+    right: unset;
+    border-right: 20px solid var(--primary-color);
+    border-left: none;
+  }
+}
 @media (max-width: 992px) {
   .nav_tab_menu {
     display: flex;

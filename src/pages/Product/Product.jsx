@@ -18,9 +18,11 @@ import { addToCart } from "../../store/slices/cartSlice";
 // product Styles
 import "../../styles/Product.css";
 import ProductReview from "./ProductReview";
-import { GetProductsByCat } from "../../hooks/getProducts";
+import { GetProducts, GetProductsByCat } from "../../hooks/getProducts";
+import { useTranslation } from "react-i18next";
 
 const Product = () => {
+  const [tranlate, i18n] = useTranslation();
   const [tab, setTab] = useState("desc");
   // for Add To Cart Button
   const [Clicked, setClicked] = useState(false);
@@ -36,17 +38,25 @@ const Product = () => {
   const {
     imgUrl,
     productName,
+    productName_ar,
     price,
     avgRating,
     reviews,
     description,
+    description_ar,
     shortDesc,
+    shortDesc_ar,
     category,
+    category_ar,
   } = product;
 
   //related Products
   const [items] = GetProductsByCat(category);
-  const relatedProducts = items.filter((item) => item.id !== id);
+  const relatedProductsFilterd = items.filter((item) => item.id !== id);
+
+  const relatedProducts = GetProducts(relatedProductsFilterd);
+
+  const lang = i18n.language === "ar";
 
   // Handle Qty
   const handleAddQty = () => (qty >= 10 ? 0 : setQty(qty + 1));
@@ -72,7 +82,7 @@ const Product = () => {
   };
 
   return (
-    <Hemlet title={productName}>
+    <Hemlet title={lang ? productName_ar : productName}>
       <Animated>
         <section className="product py-0">
           <Container>
@@ -87,7 +97,7 @@ const Product = () => {
                   >
                     <i className="ri-heart-2-line fs-3"></i>
                   </button>
-                  <img src={imgUrl} alt={productName} />
+                  <img src={imgUrl} alt={lang ? productName_ar : productName} />
                   <div className="social__share">
                     <ul>
                       <span>Share product :</span>
@@ -109,7 +119,7 @@ const Product = () => {
                 <div className="product__details">
                   {/* product Name */}
                   <div className="product__title">
-                    <h2>{productName}</h2>
+                    <h2>{lang ? productName_ar : productName}</h2>
                   </div>
 
                   {/* rating */}
@@ -131,7 +141,9 @@ const Product = () => {
                     </div>
                     -
                     <span className="fs-6">
-                      <Link to={`/category/${category}`}>{category}</Link>
+                      <Link to={`/category/${category}`}>
+                        {lang ? category_ar : category}
+                      </Link>
                     </span>
                   </div>
 
@@ -142,7 +154,9 @@ const Product = () => {
                   </div>
 
                   {/* shortDesc */}
-                  <p className="short_desc mt-5 mb-4">{shortDesc}</p>
+                  <p className="short_desc mt-5 mb-4">
+                    {lang ? shortDesc_ar : shortDesc}
+                  </p>
 
                   <div className="pro__action__buttons mt-2 d-flex gap-2">
                     {/* Add To Cart Button */}
@@ -153,8 +167,8 @@ const Product = () => {
                       onClick={() =>
                         handleAddToCart({
                           id,
-                          productName,
-                          category,
+                          productName: lang ? productName_ar : productName,
+                          category: lang ? category_ar : category,
                           price,
                           imgUrl,
                           quantity: qty,
@@ -214,12 +228,16 @@ const Product = () => {
               {tab === "desc" ? (
                 <Container>
                   <div className="product_desc">
-                    <p>{description}</p>
+                    <p>{lang ? description_ar : description}</p>
                   </div>
                 </Container>
               ) : (
                 <div className="product_review">
-                  <ProductReview productName={productName} reviews={reviews} />
+                  <ProductReview
+                    productName={lang ? productName_ar : productName}
+                    reviews={reviews}
+                    lang={lang}
+                  />
                 </div>
               )}
             </div>

@@ -5,10 +5,13 @@ import { Col, Container, Row } from "reactstrap";
 import OrderSummaryCartItem from "./OrderSummaryCartItem";
 
 import "./OrderSummaryCard.css";
+import { useTranslation } from "react-i18next";
 const OrderSummaryCard = ({ setHide }) => {
   const { cartItems, totalAmount, shipping } = useSelector(
     (state) => state.cart
   );
+
+  const [tranlate] = useTranslation();
 
   // divElement.offsetHeight;
 
@@ -17,7 +20,8 @@ const OrderSummaryCard = ({ setHide }) => {
       <div className="order__summary__card">
         <Container>
           <button className="btn hide__BTN" onClick={() => setHide(false)}>
-            <i className="ri-arrow-left-line"></i> hide order summary
+            <i className="ri-arrow-left-line"></i>{" "}
+            {tranlate("checkout.hide_order_summary")}
           </button>
           <Row>
             {/* Total Price Card */}
@@ -34,7 +38,7 @@ const OrderSummaryCard = ({ setHide }) => {
               <CurrencyFormat
                 renderText={(val) => (
                   <div className="__card_item">
-                    Subtotal: <span>{val}</span>
+                    {tranlate("checkout.subtotal")}: <span>{val}</span>
                   </div>
                 )}
                 decimalScale={2}
@@ -45,14 +49,13 @@ const OrderSummaryCard = ({ setHide }) => {
                 prefix="$"
               />
               <div className="__card_item">
-                Shipping:
-                <span>${shipping}</span>
+                {tranlate("checkout.shipping")}:<span>${shipping}</span>
               </div>
               <hr className="hr" />
               <CurrencyFormat
                 renderText={(val) => (
                   <div className="__card_item price">
-                    Total: <span>{val}</span>
+                    {tranlate("checkout.total")}: <span>{val}</span>
                   </div>
                 )}
                 decimalScale={2}

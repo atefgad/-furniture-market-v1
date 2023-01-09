@@ -14,12 +14,15 @@ import "../../styles/Login.css";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/slices/userSlice";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [tranlate] = useTranslation();
 
   // React-Form-Hook
   const {
@@ -42,8 +45,6 @@ const Login = () => {
 
       const user = userCredential.user;
 
-      console.log("user", user);
-
       dispatch(
         login({
           uid: user.uid,
@@ -54,7 +55,7 @@ const Login = () => {
       );
 
       setLoading(false);
-      toast.success("successfully logged in :)");
+      toast.success(tranlate("general.login_msg"));
       //navigate(-1);
       navigate("/cart");
     } catch (error) {
@@ -64,8 +65,8 @@ const Login = () => {
   };
 
   return (
-    <Hemlet title="Login">
-      <CommonSection title="Login" />
+    <Hemlet title={tranlate("general.login_page_title")}>
+      <CommonSection title={tranlate("general.login_page_title")} />
       <Animated>
         <Container>
           <Row className="my-5">
@@ -85,9 +86,9 @@ const Login = () => {
                           errors.email && "border-danger"
                         } `}
                         type="text"
-                        placeholder="Email"
+                        placeholder={tranlate("placeholder.email")}
                         {...register("email", {
-                          required: "Email is required",
+                          required: tranlate("required.email"),
                         })}
                       />
                       <p className="text-danger">
@@ -104,9 +105,9 @@ const Login = () => {
                           errors.password && "border-danger"
                         } `}
                         type="password"
-                        placeholder="password"
+                        placeholder={tranlate("placeholder.password")}
                         {...register("password", {
-                          required: "Password is required",
+                          required: tranlate("required.email"),
                         })}
                       />
                       <p className="text-danger">
@@ -118,11 +119,11 @@ const Login = () => {
                   <div className="d-flex justify-content-between ">
                     <p>
                       <Link to="#!" className="text-decoration-underline">
-                        Lost your password?
+                        {tranlate("general.lost_your_password")}
                       </Link>
                     </p>
                     <Link to="/signup" className="">
-                      Create new account
+                      {tranlate("general.create_new_account")}
                     </Link>
                   </div>
 
@@ -131,7 +132,7 @@ const Login = () => {
                       type="submit"
                       className="btn btn-primary mt-2 w-25 "
                     >
-                      Login
+                      {tranlate("general.login")}
                     </button>
                   </motion.div>
                 </Form>
