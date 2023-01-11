@@ -1,8 +1,11 @@
 import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const ReviewForm = () => {
   const [rating, setRating] = useState(null);
+
+  const [translate] = useTranslation();
   // const reviewFormRef = useRef();
   const ratingRef = useRef();
   const userNameRef = useRef();
@@ -19,25 +22,30 @@ const ReviewForm = () => {
       rating: ratingRef.current.value,
     };
 
-    toast.success("review added successfully " + rating, {
-      duration: 2000,
-      position: "top-center",
-    });
+    toast.success(translate("product.review_added_msg"));
+
+    userNameRef.current.value = null;
+    ratingRef.current.value = null;
+    emailRef.current.value = null;
+    msgRef.current.value = null;
   };
 
   return (
     <div className="review__form__wrapper">
       <form onSubmit={formSubmitHandler}>
         <p className="review__form__text">
-          Your email address will not be published.
+          {translate("product.Your_email_address_will_not_be_published")}
+
           <b>
-            Required fields are marked <span>*</span>
+            {translate("product.required_fields_are_marked")} <span>*</span>
           </b>
         </p>
 
         {/* review rating */}
         <div className="review__form__rating">
-          <span className="rating__txt">Your rating:</span>
+          <span className="rating__txt">
+            {translate("product.your_rating")}:
+          </span>
           <div className="rating__stars">
             {[1, 2, 3, 4, 5].map((el, idx) => (
               <div
@@ -67,7 +75,7 @@ const ReviewForm = () => {
         <div className="review__form__comment">
           <textarea
             className="form-control"
-            placeholder="Your review *"
+            placeholder={translate("placeholder.your_review")}
             cols="45"
             rows="4"
             required
@@ -81,7 +89,7 @@ const ReviewForm = () => {
             <input
               className="form-control"
               type="text"
-              placeholder="Name *"
+              placeholder={translate("placeholder.name*")}
               size="30"
               required
               ref={userNameRef}
@@ -91,7 +99,7 @@ const ReviewForm = () => {
             <input
               className="form-control"
               type="email"
-              placeholder="Email *"
+              placeholder={translate("placeholder.email*")}
               size="30"
               required
               ref={emailRef}
@@ -102,7 +110,7 @@ const ReviewForm = () => {
         <div className="mt-2 text-center">
           <button className="btn btn-primary w-25" type="submit">
             {" "}
-            submit
+            {translate("product.submit")}
           </button>
         </div>
       </form>

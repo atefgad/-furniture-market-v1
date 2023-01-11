@@ -1,5 +1,6 @@
 {
-    "title": "مرحبا بالعالم!",
+    "title": "",
+    "sub_title": "للاثاث والديكورات",
     "general": {
         "shop_now": "تسوق الأن",
         "shopping_now": "تسوق الأن",
@@ -26,6 +27,7 @@
         "profile_img_msg": "لم يتم رفع صورة الملف الشخصي",
         "signup_msg": "تم انشاء الحساب بنجاح",
         "signup_error_msg": "هناك خطأ ما! لم يتم انشاء الحساب",
+        "remove_cart_item_msg": "تم الحذف من العربة بنجاح",
         "profile_img": "صورة الملف الشخصى",
         "hello": "مرحبا",
         "my_account": "حسابى",
@@ -60,7 +62,10 @@
         "card_name": "اسم البطاقة (أخنيارى)",
         "card_number": "رقم البطاقة",
         "expiration_date": "تاريخ الأنتهاء(شهر/سنة)",
-        "cvv": "الرقم السرى(CVV)"
+        "cvv": "الرقم السرى(CVV)",
+        "your_review": "أكتب تقييمك هنا*",
+        "name*": "أسمك*",
+        "email*": "بريدك الالكترونى*"
     },
     "required": {
         "email": "برجاء ادخال البريد الالكترونى",
@@ -136,6 +141,25 @@
         "copy_right": "جميع الحقوق محفوظة",
         "made_by": "صنع بواسطة"
     },
+    "product": {
+        "related_products": "منتجات ذات صله",
+        "added_to_cart": "إضيفت إلى عربة التسوق",
+        "added_to_cart_msg": "تمت الإضافة إلى عربة التسوق",
+        "review_added_msg": "تم إضافة التقييم بنجلح",
+        "Your_email_address_will_not_be_published": "لن يتم نشر عنوان بريدك الإلكتروني",
+        "required_fields_are_marked": "الحقول المطلوبة محددةبعلامة ",
+        "your_rating": "تقييمك",
+        "share_product": "مشاركة",
+        "qty": "الكمية",
+        "description": "وصف المنتج",
+        "reviews": "تقييمات",
+        "review_for": "تقييم لـ ",
+        "add_a_review": "إضافة تقييم",
+        "to_write_your_review": "لكتابة تقييمك",
+        "login": "تسجيل الدخول",
+        "there_are_no_reviews_yet": "لا توجد تقييمات بعد! ",
+        "submit": "تقييم"
+    },
     "account": {
         "title": "الحساب",
         "nav_title": "لوحة التحكم",
@@ -168,6 +192,7 @@
         "title": "عملية الشراء",
         "information": "المعلومات",
         "shipping": "عنوان الشحن",
+        "shipping2": "الشحن",
         "payment": "عملية الدفع",
         "subtotal": "المجموع الفرعى",
         "total": "إجمالى المبلغ",
@@ -197,7 +222,9 @@
         "return_to_cart": "رجوع إلى عربة التسوق",
         "continue_to_shipping": "الأستمرار إلى الشحن",
         "return_to_shipping": "رجوع إلى الشحن",
-        "complete_order": "إدفع الأن"
+        "complete_order": "إدفع الأن",
+        "thank_you": "شكرا لك!",
+        "order_confirmed": "تم تاكيد طلبك!"
     },
     "notFound": {
         "404_title": "معذرةً , الصفحة غير موجودة!",

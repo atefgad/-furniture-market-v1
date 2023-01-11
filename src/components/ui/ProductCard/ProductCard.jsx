@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import "../../../styles/ProductCard.css";
 import { addToCart } from "../../../store/slices/cartSlice";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const ProductCard = ({ item }) => {
   // generate random colors form the array
@@ -15,6 +16,8 @@ const ProductCard = ({ item }) => {
 
   // useDispatch
   const dispatch = useDispatch();
+
+  const [translate] = useTranslation();
 
   // create a new item
   const handleAddToCart = (item) => {
@@ -25,7 +28,7 @@ const ProductCard = ({ item }) => {
 
     // alert("product added to the cart! :)");
 
-    toast.success("product added to the cart! :)", { duration: 3000 });
+    toast.success(translate("product.added_to_cart_msg"), { duration: 3000 });
   };
 
   return (

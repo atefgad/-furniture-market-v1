@@ -67,17 +67,9 @@ const Information = () => {
     <div className="mt-3">
       <form onSubmit={handleSubmit(handleFormSubmit)}>
         <h5 className="mb-2">{tranlate("checkout.contact_information")}</h5>
-        <FormGroup className="form__group align-items-center">
+        <FormGroup className="form__group align-items-center justify-content-start border rounded-2 p-2">
           <span>{tranlate("checkout.email")}: </span>
-          <input
-            className={`form-control ${errors.email && "input-danger"} `}
-            type="email"
-            defaultValue={user?.email}
-            placeholder={tranlate("placeholder.email")}
-            {...register("email", {
-              required: tranlate("required.email"),
-            })}
-          />
+          <span className="fw-600">{user?.email}</span>
         </FormGroup>
         <h5 className="mb-2">{tranlate("checkout.shipping_addres")}</h5>
         <FormGroup className="form__group">

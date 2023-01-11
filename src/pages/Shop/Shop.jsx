@@ -20,7 +20,7 @@ const Shop = () => {
   // Sidebar
   const [isVisibleSidebar, setIsVisibleSidebar] = useState(false);
 
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
 
   // handle filter for products by category
   const handleFilterChange = (e) => {
@@ -104,8 +104,8 @@ const Shop = () => {
   const getProducts = GetProducts(products);
 
   return (
-    <Hemlet title={tranlate("general.shop_page_title")}>
-      <CommonSection title={tranlate("general.shop_page_title")} />
+    <Hemlet title={translate("general.shop_page_title")}>
+      <CommonSection title={translate("general.shop_page_title")} />
       <Animated>
         <Container>
           <Row className="my-3">
@@ -119,18 +119,18 @@ const Shop = () => {
               //onClick={() => setIsVisibleSidebar(!isVisibleSidebar)}
             >
               <div className="sidebar__content">
-                <h4>{tranlate("general.filters")}</h4>
+                <h4>{translate("general.filters")}</h4>
                 <span
                   className="sidebar__hide_btn"
                   onClick={() => setIsVisibleSidebar(!isVisibleSidebar)}
                 >
                   <i className="ri-close-line fs-2"></i>{" "}
-                  {tranlate("general.close")}
+                  {translate("general.close")}
                 </span>
                 <div className="sidebar__widget">
                   {/* WidgetAccordion Category*/}
                   <WidgetAccordion
-                    name={tranlate("general.filter_category")}
+                    name={translate("general.filter_category")}
                     togglerId="category"
                     isOpen
                     // active={isActive === 1 ? true : false}
@@ -148,7 +148,7 @@ const Shop = () => {
 
                   {/* WidgetAccordion Price*/}
                   <WidgetAccordion
-                    name={tranlate("general.filter_price")}
+                    name={translate("general.filter_price")}
                     togglerId="price"
                     isOpen
                   >
@@ -157,7 +157,7 @@ const Shop = () => {
                       onSubmit={handleFormPrice}
                     >
                       <input type="number" min="20" defaultValue={20} />
-                      <span>{tranlate("general.filters_to")}</span>
+                      <span>{translate("general.filters_to")}</span>
                       <input
                         type="number"
                         min="20"
@@ -165,14 +165,14 @@ const Shop = () => {
                         defaultValue={11990}
                       />
                       <button type="submit" className="btn btn-primary">
-                        {tranlate("general.filters_btn")}
+                        {translate("general.filters_btn")}
                       </button>
                     </form>
                   </WidgetAccordion>
 
                   {/* WidgetAccordion Colors*/}
                   <WidgetAccordion
-                    name={tranlate("general.filter_color")}
+                    name={translate("general.filter_color")}
                     togglerId="colors"
                     isOpen
                     // active={isActive === 2 ? true : false}
@@ -209,7 +209,7 @@ const Shop = () => {
                         onClick={() => setIsVisibleSidebar(!isVisibleSidebar)}
                       >
                         <i className="ri-menu-3-fill"></i>{" "}
-                        {tranlate("general.filters")}
+                        {translate("general.filters")}
                       </button>
                     </div>
 

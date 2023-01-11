@@ -90,6 +90,10 @@
   object-fit: contain;
 }
 
+.timer__count__IMG:lang(ar) {
+  text-align: left !important;
+}
+
 /* Bannar */
 .bannar__card {
   background-color: var(--card-bg-04);

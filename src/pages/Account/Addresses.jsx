@@ -5,7 +5,7 @@ import { Animated, Hemlet } from "../../components";
 import { openModal } from "../../store/slices/modalSlice";
 
 const Addresses = () => {
-  const [tranlate, i18n] = useTranslation();
+  const [translate, i18n] = useTranslation();
   const dispatch = useDispatch();
   return (
     <Hemlet title="Addresses">
@@ -14,13 +14,13 @@ const Addresses = () => {
           <Row className="account__page__container">
             <Col lg="12">
               <div className="d-flex align-items-center justify-content-between ">
-                <h3>{tranlate("account.addresses")}</h3>
+                <h3>{translate("account.addresses")}</h3>
                 <button
                   className="btn btn-primary d-flex"
                   onClick={() => dispatch(openModal("AddAddress"))}
                 >
                   <i className="ri-map-pin-add-line me-1"></i>
-                  {tranlate("general.add_new_address")}
+                  {translate("general.add_new_address")}
                 </button>
               </div>
               <hr className="hr" />
@@ -28,7 +28,7 @@ const Addresses = () => {
               <div className="d-flex">
                 {/* Address Card */}
                 <div className="address__card">
-                  <p>{tranlate("account.primary_address")}</p>
+                  <p>{translate("account.primary_address")}</p>
                   <h6>Atef Gad</h6>
                   <span>01156777561</span>
                   <span>Gerga, Sohag</span>

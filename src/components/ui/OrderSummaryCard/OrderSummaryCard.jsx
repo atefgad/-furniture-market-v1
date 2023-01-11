@@ -49,7 +49,7 @@ const OrderSummaryCard = ({ setHide }) => {
                 prefix="$"
               />
               <div className="__card_item">
-                {tranlate("checkout.shipping")}:<span>${shipping}</span>
+                {tranlate("checkout.shipping2")}:<span>${shipping}</span>
               </div>
               <hr className="hr" />
               <CurrencyFormat

@@ -22,7 +22,7 @@ import { GetProducts, GetProductsByCat } from "../../hooks/getProducts";
 import { useTranslation } from "react-i18next";
 
 const Product = () => {
-  const [tranlate, i18n] = useTranslation();
+  const [translate, i18n] = useTranslation();
   const [tab, setTab] = useState("desc");
   // for Add To Cart Button
   const [Clicked, setClicked] = useState(false);
@@ -78,7 +78,7 @@ const Product = () => {
       setClicked(false);
     }, 2500);
 
-    toast.success("product added to the cart! :)", { duration: 3000 });
+    toast.success(translate("product.added_to_cart_msg"));
   };
 
   return (
@@ -100,7 +100,7 @@ const Product = () => {
                   <img src={imgUrl} alt={lang ? productName_ar : productName} />
                   <div className="social__share">
                     <ul>
-                      <span>Share product :</span>
+                      <span>{translate("product.share_product")} :</span>
                       {["facebook", "twitter", "linkedin", "line"].map(
                         (el, idx) => (
                           <li key={idx}>
@@ -137,7 +137,10 @@ const Product = () => {
                     </div>
                     <div className="d-flex">
                       <b className="me-1">{avgRating} </b>
-                      <p> ({reviews.length} Reviws)</p>
+                      <p>
+                        {" "}
+                        ({reviews.length} {translate("product.reviews")})
+                      </p>
                     </div>
                     -
                     <span className="fs-6">
@@ -161,6 +164,7 @@ const Product = () => {
                   <div className="pro__action__buttons mt-2 d-flex gap-2">
                     {/* Add To Cart Button */}
                     <AddToCartBtn
+                      lable={translate("general.add_to_cart")}
                       className="btn-primary fw-bold text-light btn-lg d-block w-100"
                       qty={qty}
                       clicked={Clicked}
@@ -178,7 +182,7 @@ const Product = () => {
 
                     {/* Qty input */}
                     <div className="qty__wrapper d-flex align-items-center gap-1">
-                      <label htmlFor="qty">qty</label>
+                      <label htmlFor="qty">{translate("product.qty")}</label>
                       <i
                         className="ri-subtract-line"
                         onClick={handleMinsQty}
@@ -213,13 +217,13 @@ const Product = () => {
                   className={`tab__item ${tab === "desc" ? "active" : ""}`}
                   onClick={() => setTab("desc")}
                 >
-                  description
+                  {translate("product.description")}
                 </li>
                 <li
                   className={`tab__item ${tab === "review" ? "active" : ""}`}
                   onClick={() => setTab("review")}
                 >
-                  Reviws ({reviews.length})
+                  {translate("product.reviews")} ({reviews.length})
                 </li>
               </ul>
             </div>
@@ -249,7 +253,7 @@ const Product = () => {
           <Container>
             <Row>
               <Col lg="12">
-                <SectionHeading title="related products" />
+                <SectionHeading title={translate("product.related_products")} />
               </Col>
 
               <Slides products={relatedProducts} />

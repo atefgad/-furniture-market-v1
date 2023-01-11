@@ -10,12 +10,12 @@ import CurrencyFormat from "react-currency-format";
 import { useTranslation } from "react-i18next";
 
 const Cart = () => {
-  const [tranlate, i18n] = useTranslation();
+  const [translate] = useTranslation();
   const { cartItems, totalAmount } = useSelector((state) => state.cart);
 
   return (
-    <Hemlet title={tranlate("cart.title")}>
-      <CommonSection title={tranlate("cart.title")} />
+    <Hemlet title={translate("cart.title")}>
+      <CommonSection title={translate("cart.title")} />
       <Animated>
         <Container>
           {cartItems.length === 0 ? (
@@ -24,10 +24,10 @@ const Cart = () => {
                 <div className="text-center py-5">
                   <span className="ri-shopping-cart-line fs-1"></span>
                   <h4 className="text-muted">
-                    {tranlate("cart.empty_cart_msg")}
+                    {translate("cart.empty_cart_msg")}
                   </h4>
                   <Link to="/shop" className="btn btn-primary rounded-0 mt-3">
-                    {tranlate("general.shopping_now")}
+                    {translate("general.shopping_now")}
                   </Link>
                 </div>
               </Col>
@@ -45,7 +45,7 @@ const Cart = () => {
               <Col lg="4">
                 <div className=" cart__card py-3 px-4">
                   <div className="d-flex align-items-center justify-content-between">
-                    <h6>{tranlate("cart.subtotal")} </h6>
+                    <h6>{translate("cart.subtotal")} </h6>
 
                     <CurrencyFormat
                       renderText={(val) => (
@@ -60,13 +60,13 @@ const Cart = () => {
                     />
                   </div>
                   <hr className="hr" />
-                  <p className="fs-6">{tranlate("cart.tax")} </p>
+                  <p className="fs-6">{translate("cart.tax")} </p>
                   <div className="d-flex align-items-center flex-column justify-content-between gap-2 w-100 mt-3">
                     <Link to="/shop" className="btn btn-outline-primary w-100">
-                      {tranlate("general.continue_shopping")}
+                      {translate("general.continue_shopping")}
                     </Link>
                     <Link to="/checkout" className="btn btn-primary w-100">
-                      {tranlate("general.checkout")}
+                      {translate("general.checkout")}
                     </Link>
                   </div>
                 </div>

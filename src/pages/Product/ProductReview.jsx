@@ -4,9 +4,11 @@ import { Col, Container, Row } from "reactstrap";
 import useAuth from "../../hooks/useAuth";
 import images from "../../constants";
 import ReviewForm from "./ReviewForm";
+import { useTranslation } from "react-i18next";
 
 const ProductReview = ({ reviews, productName, lang }) => {
   const { user } = useAuth();
+  const [translate] = useTranslation();
   return (
     <div className="review__wrapper">
       <Container>
@@ -16,9 +18,11 @@ const ProductReview = ({ reviews, productName, lang }) => {
             {reviews?.length > 0 ? (
               <div className="comments">
                 <h4>
-                  {reviews.length} Review For{" "}
+                  {reviews.length} {translate("product.review_for")}{" "}
                   <span className="text-primary">
-                    {productName.substr(0, 15)}...
+                    {productName.length > 15
+                      ? productName.substr(0, 20) + "..."
+                      : productName}
                   </span>
                 </h4>
                 {reviews?.map((item, index) => (
@@ -43,20 +47,22 @@ const ProductReview = ({ reviews, productName, lang }) => {
               </div>
             ) : (
               <div className="comments">
-                <h4>Reviews</h4>
-                <p className="fs-4">there are no Reviews yet!</p>
+                <h4>{translate("product.reviews")}</h4>
+                <p className="fs-4">
+                  {translate("product.there_are_no_reviews_yet")}
+                </p>
               </div>
             )}
           </Col>
           <Col lg="6" md="12">
             <div className="review__form">
-              <h3 className="mb-3">add a review</h3>
+              <h3 className="mb-3">{translate("product.add_a_review")}</h3>
               {!user ? (
                 <p className="fs-6">
                   <Link to="/login">
-                    <b>Login </b>
+                    <b>{translate("product.login")}</b>
                   </Link>
-                  to write your review
+                  {translate("product.to_write_your_review")}
                 </p>
               ) : (
                 <ReviewForm />

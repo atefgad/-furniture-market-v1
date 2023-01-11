@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 const Profile = () => {
-  const [tranlate, i18n] = useTranslation();
+  const [translate, i18n] = useTranslation();
   const { user, logout } = useAuth();
 
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const Profile = () => {
   const handleLogout = () => {
     dispatch(LOGOUT());
     logout();
-    toast.success(tranlate("general.logout_msg"));
+    toast.success(translate("general.logout_msg"));
   };
 
   const handleSubmit = (e) => {
@@ -50,25 +50,25 @@ const Profile = () => {
             </Col>
             <Col lg="12" md="12" className="">
               <h5 className="mb-3">
-                {tranlate("account.edit_your_account_information")}
+                {translate("account.edit_your_account_information")}
               </h5>
               <Form onSubmit={handleSubmit}>
                 <FormGroup className="form__group">
                   <input
                     className="form-control"
                     type="text"
-                    placeholder={tranlate("placeholder.first_name")}
+                    placeholder={translate("placeholder.first_name")}
                   />
 
                   <input
                     className="form-control"
                     type="text"
-                    placeholder={tranlate("placeholder.last_name")}
+                    placeholder={translate("placeholder.last_name")}
                   />
                   <input
                     className="form-control"
                     type="number"
-                    placeholder={tranlate("placeholder.phone_number")}
+                    placeholder={translate("placeholder.phone_number")}
                   />
                 </FormGroup>
                 <FormGroup className="form__group">
@@ -76,39 +76,39 @@ const Profile = () => {
                     className="form-control"
                     type="email"
                     value={user?.email}
-                    placeholder={tranlate("placeholder.email")}
+                    placeholder={translate("placeholder.email")}
                     disabled="true"
                   />
 
                   <input
                     className="form-control"
                     type="text"
-                    placeholder={tranlate("placeholder.address")}
+                    placeholder={translate("placeholder.address")}
                   />
                 </FormGroup>
                 <FormGroup className="form__group">
                   <input
                     className="form-control"
                     type="text"
-                    placeholder={tranlate("placeholder.city")}
+                    placeholder={translate("placeholder.city")}
                   />
 
                   <input
                     className="form-control"
                     type="number"
-                    placeholder={tranlate("placeholder.postal_code")}
+                    placeholder={translate("placeholder.postal_code")}
                   />
 
                   <input
                     className="form-control"
                     type="text"
-                    placeholder={tranlate("placeholder.country")}
+                    placeholder={translate("placeholder.country")}
                   />
                 </FormGroup>
 
                 <div className="text-end">
                   <button className="btn btn-primary" type="submit">
-                    {tranlate("general.save_changes")}
+                    {translate("general.save_changes")}
                   </button>
                 </div>
               </Form>

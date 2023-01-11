@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { ScrollAnimation } from "../../components";
 
 const NewsLetterForm = () => {
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
   return (
     <div className="newsletter mt-5">
       <Container>
@@ -17,11 +17,11 @@ const NewsLetterForm = () => {
                 </div>
 
                 <div className="widget__title">
-                  <h3>{tranlate("newsletter.title")}</h3>
+                  <h3>{translate("newsletter.title")}</h3>
                 </div>
 
                 <div className="widget__des">
-                  <p>{tranlate("newsletter.desc")}</p>
+                  <p>{translate("newsletter.desc")}</p>
                 </div>
               </div>
             </ScrollAnimation>
@@ -35,12 +35,12 @@ const NewsLetterForm = () => {
                     <input
                       type="text"
                       className="form-control"
-                      placeholder={tranlate("newsletter.email")}
+                      placeholder={translate("newsletter.email")}
                     />
                   </div>
                   <div className="">
                     <button type="submit" className="btn btn-secondary">
-                      {tranlate("newsletter.submit")}
+                      {translate("newsletter.submit")}
                     </button>
                   </div>
                 </div>

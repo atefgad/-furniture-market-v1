@@ -20,7 +20,7 @@ import NewsLetterForm from "./NewsLetterForm";
 import "../../styles/Home.css";
 
 const Home = () => {
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
   return (
     <Hemlet title="Home">
       <Animated>
@@ -41,8 +41,8 @@ const Home = () => {
               >
                 <ScrollAnimation animate="fade" duration={200} delay={200}>
                   <SectionHeading
-                    title={tranlate("section_head.title1")}
-                    buttonCaption={tranlate("general.view_all")}
+                    title={translate("section_head.title1")}
+                    buttonCaption={translate("general.view_all")}
                     path="/shop"
                   />
                 </ScrollAnimation>
@@ -64,8 +64,8 @@ const Home = () => {
               <Col lg="12">
                 <ScrollAnimation animate="fade" duration={200} delay={200}>
                   <SectionHeading
-                    title={tranlate("section_head.title2")}
-                    buttonCaption={tranlate("general.view_all")}
+                    title={translate("section_head.title2")}
+                    buttonCaption={translate("general.view_all")}
                     path="/shop"
                   />
                 </ScrollAnimation>
@@ -91,7 +91,7 @@ const Home = () => {
                         delay={260}
                       >
                         <span className="bannar__lable">
-                          <b>{tranlate("bannar.lable")} </b>
+                          <b>{translate("bannar.lable")} </b>
                         </span>
                       </ScrollAnimation>
                       <ScrollAnimation
@@ -100,7 +100,7 @@ const Home = () => {
                         delay={280}
                       >
                         <h3 className="bannar__title">
-                          {tranlate("bannar.title")}
+                          {translate("bannar.title")}
                         </h3>
                       </ScrollAnimation>
                       <ScrollAnimation
@@ -109,8 +109,8 @@ const Home = () => {
                         delay={280}
                       >
                         <h5 className="bannar__subtitle">
-                          {tranlate("bannar.sub_title")}{" "}
-                          <span> {tranlate("bannar.off")} </span>
+                          {translate("bannar.sub_title")}{" "}
+                          <span> {translate("bannar.off")} </span>
                         </h5>
                       </ScrollAnimation>
                       <ScrollAnimation
@@ -123,7 +123,7 @@ const Home = () => {
                             className="bannar__link btn btn-outline-primary"
                             to="/shop"
                           >
-                            {tranlate("general.shop_now")}
+                            {translate("general.shop_now")}
                           </Link>
                         </div>
                       </ScrollAnimation>
@@ -140,8 +140,8 @@ const Home = () => {
                 <div className="mt-5 mt-lg-0">
                   <ScrollAnimation animate="fade" duration={200} delay={200}>
                     <SectionHeading
-                      title={tranlate("section_head.title1")}
-                      buttonCaption={tranlate("general.view_all")}
+                      title={translate("section_head.title1")}
+                      buttonCaption={translate("general.view_all")}
                       path="/shop"
                     />
                   </ScrollAnimation>

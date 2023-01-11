@@ -22,7 +22,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
 
   // React-Form-Hook
   const {
@@ -55,7 +55,7 @@ const Login = () => {
       );
 
       setLoading(false);
-      toast.success(tranlate("general.login_msg"));
+      toast.success(translate("general.login_msg"));
       //navigate(-1);
       navigate("/cart");
     } catch (error) {
@@ -65,8 +65,8 @@ const Login = () => {
   };
 
   return (
-    <Hemlet title={tranlate("general.login_page_title")}>
-      <CommonSection title={tranlate("general.login_page_title")} />
+    <Hemlet title={translate("general.login_page_title")}>
+      <CommonSection title={translate("general.login_page_title")} />
       <Animated>
         <Container>
           <Row className="my-5">
@@ -86,9 +86,9 @@ const Login = () => {
                           errors.email && "border-danger"
                         } `}
                         type="text"
-                        placeholder={tranlate("placeholder.email")}
+                        placeholder={translate("placeholder.email")}
                         {...register("email", {
-                          required: tranlate("required.email"),
+                          required: translate("required.email"),
                         })}
                       />
                       <p className="text-danger">
@@ -105,9 +105,9 @@ const Login = () => {
                           errors.password && "border-danger"
                         } `}
                         type="password"
-                        placeholder={tranlate("placeholder.password")}
+                        placeholder={translate("placeholder.password")}
                         {...register("password", {
-                          required: tranlate("required.email"),
+                          required: translate("required.email"),
                         })}
                       />
                       <p className="text-danger">
@@ -119,11 +119,11 @@ const Login = () => {
                   <div className="d-flex justify-content-between ">
                     <p>
                       <Link to="#!" className="text-decoration-underline">
-                        {tranlate("general.lost_your_password")}
+                        {translate("general.lost_your_password")}
                       </Link>
                     </p>
                     <Link to="/signup" className="">
-                      {tranlate("general.create_new_account")}
+                      {translate("general.create_new_account")}
                     </Link>
                   </div>
 
@@ -132,7 +132,7 @@ const Login = () => {
                       type="submit"
                       className="btn btn-primary mt-2 w-25 "
                     >
-                      {tranlate("general.login")}
+                      {translate("general.login")}
                     </button>
                   </motion.div>
                 </Form>

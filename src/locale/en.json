@@ -1,5 +1,6 @@
 {
     "title": "",
+    "sub_title": "Furniture Store",
     "general": {
         "shop_now": "shop now",
         "shopping_now": "shopping now",
@@ -26,6 +27,7 @@
         "profile_img_msg": "profile image not uoploaded",
         "signup_msg": "account created successfully",
         "signup_error_msg": "something went wrong!",
+        "remove_cart_item_msg": "product removed successfully",
         "profile_img": "Profile Photo",
         "hello": "Hello",
         "my_account": "My Account",
@@ -60,7 +62,10 @@
         "card_name": "Cardholder name (optional)",
         "card_number": "Card number",
         "expiration_date": "Expiration date(MM/YY)",
-        "cvv": "Secrity code(Cvv)"
+        "cvv": "Secrity code(Cvv)",
+        "your_review": "Your review *",
+        "name*": "Your name *",
+        "email*": "Your email *"
     },
     "required": {
         "email": "Email is required",
@@ -136,6 +141,25 @@
         "copy_right": "All copyright reserved",
         "made_by": "made by"
     },
+    "product": {
+        "related_products": "related products",
+        "added_to_cart": "Added to cart",
+        "added_to_cart_msg": "product added to the cart! :)",
+        "review_added_msg": "review added successfully",
+        "Your_email_address_will_not_be_published": "Your email address will not be published.",
+        "required_fields_are_marked": "Required fields are marked",
+        "your_rating": "Your rating",
+        "share_product": "Share product",
+        "qty": "qty",
+        "description": "description",
+        "reviews": "Reviews",
+        "review_for": "Review for",
+        "add_a_review": "add a review",
+        "to_write_your_review": "to write your review",
+        "login": "login",
+        "there_are_no_reviews_yet": "there are no Reviews yet! ",
+        "submit": "submit"
+    },
     "account": {
         "title": "Account",
         "nav_title": "Account Dashboard",
@@ -168,6 +192,7 @@
         "title": "checkout",
         "information": "information",
         "shipping": "shipping",
+        "shipping2": "shipping",
         "payment": "payment",
         "subtotal": "Subtotal",
         "total": "Total",
@@ -197,7 +222,9 @@
         "return_to_cart": "Return to cart",
         "continue_to_shipping": "Continue to shipping",
         "return_to_shipping": "Return to shipping",
-        "complete_order": "Complete order"
+        "complete_order": "Complete order",
+        "thank_you": "Thank you!",
+        "order_confirmed": "your order is confirmed!"
     },
     "notFound": {
         "404_title": "Sorry, page not found!",

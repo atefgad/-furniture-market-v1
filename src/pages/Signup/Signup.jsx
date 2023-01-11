@@ -30,7 +30,7 @@ const Signup = () => {
   const [imgPreview, setImgPreview] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -73,7 +73,7 @@ const Signup = () => {
 
       uploadTask.on(
         () => {
-          toast.error(tranlate("general.profile_img_msg"));
+          toast.error(translate("general.profile_img_msg"));
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -110,18 +110,18 @@ const Signup = () => {
       );
 
       setLoading(false);
-      toast.success(tranlate("general.signup_msg"));
+      toast.success(translate("general.signup_msg"));
       handleLogout();
     } catch (error) {
       setLoading(false);
       setImgPreview(null);
-      toast.error(tranlate("general.signup_error_msg"));
+      toast.error(translate("general.signup_error_msg"));
     }
   };
 
   return (
-    <Hemlet title={tranlate("general.signup_page_title")}>
-      <CommonSection title={tranlate("general.signup_page_title")} />
+    <Hemlet title={translate("general.signup_page_title")}>
+      <CommonSection title={translate("general.signup_page_title")} />
       <Animated>
         <Container>
           <Row className="my-5">
@@ -155,7 +155,7 @@ const Signup = () => {
                       </label>
                     </div>
                     <span className="fs-5 text-muted">
-                      {tranlate("general.profile_img")}
+                      {translate("general.profile_img")}
                     </span>
                   </div>
                   {/* First && Last name */}
@@ -166,16 +166,16 @@ const Signup = () => {
                           errors.firstName && "border-danger"
                         } `}
                         type="text"
-                        placeholder={tranlate("placeholder.first_name")}
+                        placeholder={translate("placeholder.first_name")}
                         {...register("firstName", {
-                          required: tranlate("required.first_name"),
+                          required: translate("required.first_name"),
                           minLength: {
                             value: 3,
-                            message: tranlate("required.min_3"),
+                            message: translate("required.min_3"),
                           },
                           maxLength: {
                             value: 15,
-                            message: tranlate("required.max_15"),
+                            message: translate("required.max_15"),
                           },
                         })}
                       />
@@ -190,16 +190,16 @@ const Signup = () => {
                           errors.lastrName && "border-danger"
                         } `}
                         type="text"
-                        placeholder={tranlate("placeholder.last_name")}
+                        placeholder={translate("placeholder.last_name")}
                         {...register("lastName", {
-                          required: tranlate("required.last_name"),
+                          required: translate("required.last_name"),
                           minLength: {
                             value: 3,
-                            message: tranlate("required.min_3"),
+                            message: translate("required.min_3"),
                           },
                           maxLength: {
                             value: 15,
-                            message: tranlate("required.max_15"),
+                            message: translate("required.max_15"),
                           },
                         })}
                       />
@@ -217,9 +217,9 @@ const Signup = () => {
                           errors.email && "border-danger"
                         } `}
                         type="text"
-                        placeholder={tranlate("placeholder.email")}
+                        placeholder={translate("placeholder.email")}
                         {...register("email", {
-                          required: tranlate("required.email"),
+                          required: translate("required.email"),
                         })}
                       />
                       <p className="text-danger">
@@ -233,16 +233,16 @@ const Signup = () => {
                           errors.userName && "border-danger"
                         } `}
                         type="text"
-                        placeholder={tranlate("placeholder.username")}
+                        placeholder={translate("placeholder.username")}
                         {...register("userName", {
-                          required: tranlate("required.username"),
+                          required: translate("required.username"),
                           minLength: {
                             value: 3,
-                            message: tranlate("required.min_3"),
+                            message: translate("required.min_3"),
                           },
                           maxLength: {
                             value: 15,
-                            message: tranlate("required.max_15"),
+                            message: translate("required.max_15"),
                           },
                         })}
                       />
@@ -260,9 +260,9 @@ const Signup = () => {
                           errors.password && "border-danger"
                         } `}
                         type="password"
-                        placeholder={tranlate("placeholder.password")}
+                        placeholder={translate("placeholder.password")}
                         {...register("password", {
-                          required: tranlate("required.password"),
+                          required: translate("required.password"),
                         })}
                       />
                       <p className="text-danger fs-6">
@@ -276,14 +276,14 @@ const Signup = () => {
                     className="btn btn-primary mt-0 mb-3 w-50 "
                     //disabled={errors ? "true" : "false"}
                   >
-                    {tranlate("general.signup_new")}
+                    {translate("general.signup_new")}
                   </button>
                 </Form>
 
                 <p>
-                  {tranlate("general.do_you_have_an_account")}
+                  {translate("general.do_you_have_an_account")}
                   <Link to="/login" className="">
-                    <b> {tranlate("general.login_now")}</b>
+                    <b> {translate("general.login_now")}</b>
                   </Link>
                 </p>
               </Col>

@@ -85,7 +85,7 @@ const Header = () => {
                     <h1>
                       M2<span className="main__color">Market</span>
                     </h1>
-                    <p>Furniture Store</p>
+                    <p>{tranlate("sub_title")}</p>
                   </div>
                 </Link>
               </div>

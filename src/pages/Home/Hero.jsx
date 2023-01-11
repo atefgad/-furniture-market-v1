@@ -6,7 +6,7 @@ import { AnimatedButton } from "../../components";
 import images from "../../constants";
 
 const Hero = () => {
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
   const year = new Date().getFullYear();
 
   return (
@@ -15,19 +15,19 @@ const Hero = () => {
         <Row className="align-items-center justify-center">
           <Col lg="6" md="6">
             <div className="hero__content">
-              <p className="hero__subtitle">{tranlate("hero.hero_subtitle")}</p>
+              <p className="hero__subtitle">{translate("hero.hero_subtitle")}</p>
               <h2 className="hero__heading">
-                {tranlate("hero.New_arrivals")}
+                {translate("hero.New_arrivals")}
                 <br />{" "}
                 <span className="main__color">
-                  {tranlate("hero.collection")}
+                  {translate("hero.collection")}
                 </span>{" "}
                 <br />
                 {year}
               </h2>
 
               {/* Hero Button */}
-              <AnimatedButton caption={tranlate("general.shop_now")}>
+              <AnimatedButton caption={translate("general.shop_now")}>
                 <Link to="/shop">
                   <i className="ri-arrow-right-line"></i>
                 </Link>

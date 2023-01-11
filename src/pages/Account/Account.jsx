@@ -21,11 +21,11 @@ const LinksAr = [
 ];
 
 const Account = () => {
-  const [tranlate, i18n] = useTranslation();
+  const [translate, i18n] = useTranslation();
 
   let links = i18n.language === "en" ? linksEn : LinksAr;
   return (
-    <Hemlet title={tranlate("account.title")}>
+    <Hemlet title={translate("account.title")}>
       <Header />
       <section className="account__content">
         <Container>
@@ -33,7 +33,7 @@ const Account = () => {
             {/* NavTabMenu */}
             <Col lg="3">
               <div className="wrapper__tab_content card">
-                <h3 className="tab__title">{tranlate("account.nav_title")}</h3>
+                <h3 className="tab__title">{translate("account.nav_title")}</h3>
                 <div className="nav_tab_menu">
                   {links.map((el, idx) => (
                     <NavLink

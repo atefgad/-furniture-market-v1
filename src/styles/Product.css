@@ -125,6 +125,10 @@
   background-color: var(--white-color) !important;
   color: var(--primary-color) !important;
   position: relative;
+  display: flex;
+}
+.qty__wrapper:lang(ar) {
+  flex-direction: row-reverse;
 }
 .qty__wrapper label {
   font-weight: 500;

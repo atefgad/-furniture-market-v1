@@ -8,15 +8,16 @@ import {
   removeFromCart,
 } from "../../store/slices/cartSlice";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 const CartListItem = ({ cartItem }) => {
+  const [translate] = useTranslation();
+
   const dispatch = useDispatch();
 
   const handleRemove = (cartItem) => {
     dispatch(removeFromCart(cartItem));
-    toast.success("product removed successfully", {
-      duration: 2000,
-    });
+    toast.success(translate("general.remove_cart_item_msg"));
   };
   return (
     <div className="cart__item">

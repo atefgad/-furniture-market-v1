@@ -10,22 +10,22 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Order = ({ order }) => {
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
 
   return (
     <AccordionItem className="order" key={order.id}>
       <AccordionHeader targetId={order.id} className="order__head" tag="div">
         <div className="head__left">
           <div className="head__left_item">
-            <span>{tranlate("account.order_placed")}</span>
+            <span>{translate("account.order_placed")}</span>
             <small>{order.data.created}</small>
           </div>
           <div className="head__left_item">
-            <span>{tranlate("account.total")}</span>
+            <span>{translate("account.total")}</span>
             <small>${order.data.amount}</small>
           </div>
           <div className="head__left_item">
-            <span>{tranlate("account.ship_to")}</span>
+            <span>{translate("account.ship_to")}</span>
             <a href="#!" id="e3">
               {order.data.adressDetails.firstName +
                 " " +
@@ -50,7 +50,7 @@ const Order = ({ order }) => {
                 <small>{order.data.adressDetails.city}</small>
                 <small>{order.data.adressDetails.country}</small>
                 <small>
-                  {tranlate("account.phone")}:{" "}
+                  {translate("account.phone")}:{" "}
                   <tel>{order.data.adressDetails.phone}</tel>
                 </small>
               </PopoverBody>
@@ -60,18 +60,18 @@ const Order = ({ order }) => {
         <div className="head__right">
           <div className="head__right_item text-center">
             <span>
-              {tranlate("account.order_number")} #{order.id}
+              {translate("account.order_number")} #{order.id}
             </span>
-            <a href="#!">{tranlate("account.view_details")}</a>
+            <a href="#!">{translate("account.view_details")}</a>
           </div>
         </div>
       </AccordionHeader>
       <AccordionBody accordionId={order.id} className="order__body">
         <div className="w-100">
           <div className="d-flex justify-content-between align-items-center mb-2">
-            <h5>{tranlate("account.order_items")}:</h5>
+            <h5>{translate("account.order_items")}:</h5>
             <button className="btn btn-primary">
-              {tranlate("account.order_track")}
+              {translate("account.order_track")}
             </button>
           </div>
           <div>

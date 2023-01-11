@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 import "../../styles/NotFound.css";
 
 const NotFound = () => {
-  const [tranlate, i18n] = useTranslation();
+  const [translate, i18n] = useTranslation();
 
   return (
     <div className="page404">
       <div className="text">
-        <h2>{tranlate("notFound.404_title")}</h2>
-        <p>{tranlate("notFound.404_desc")}</p>
+        <h2>{translate("notFound.404_title")}</h2>
+        <p>{translate("notFound.404_desc")}</p>
       </div>
       <div className="wrapper_404">
         <div class="text_top">404</div>
@@ -21,7 +21,7 @@ const NotFound = () => {
       </div>
       <div className="bottom mt-2">
         <Link to="/" className="btn btn-lg btn-primary rounded-0">
-          {tranlate("notFound.404_button")}
+          {translate("notFound.404_button")}
         </Link>
       </div>
     </div>
