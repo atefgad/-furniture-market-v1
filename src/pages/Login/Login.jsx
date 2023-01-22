@@ -128,10 +128,7 @@ const Login = () => {
                   </div>
 
                   <motion.div whileTap={{ scale: 1.1 }}>
-                    <button
-                      type="submit"
-                      className="btn btn-primary mt-2 w-25 "
-                    >
+                    <button type="submit" className="btn btn-primary mt-2">
                       {translate("general.login")}
                     </button>
                   </motion.div>

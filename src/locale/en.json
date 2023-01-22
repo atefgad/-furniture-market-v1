@@ -207,6 +207,7 @@
         "shipping_method": "Shipping method",
         "basic_shipping": "basic shipping",
         "free": "free",
+        "change": "Change",
         "Premium_shipping": "Premium shipping with tracking",
         "choose_payment_method": "Choose payment method",
         "pay_with": "pay with",

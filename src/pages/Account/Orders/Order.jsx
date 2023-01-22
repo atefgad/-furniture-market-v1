@@ -8,9 +8,12 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 
 const Order = ({ order }) => {
   const [translate] = useTranslation();
+
+  // moment.unix(order.data.created).format("MMMM DD YYYY h:mma")
 
   return (
     <AccordionItem className="order" key={order.id}>
@@ -18,7 +21,10 @@ const Order = ({ order }) => {
         <div className="head__left">
           <div className="head__left_item">
             <span>{translate("account.order_placed")}</span>
-            <small>{order.data.created}</small>
+            {/* <small>{order.data.created}</small> */}
+            <small>
+              {moment.unix(order.data.created).format("DD MMMM YYYY")}
+            </small>
           </div>
           <div className="head__left_item">
             <span>{translate("account.total")}</span>

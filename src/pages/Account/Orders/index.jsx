@@ -1,14 +1,7 @@
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  AccordionBody,
-  AccordionHeader,
-  AccordionItem,
-  Container,
-  Row,
-  UncontrolledAccordion,
-} from "reactstrap";
+import { Container, Row, UncontrolledAccordion } from "reactstrap";
 import { Animated, Hemlet } from "../../../components";
 import { db } from "../../../firebase.config";
 import useAuth from "../../../hooks/useAuth";

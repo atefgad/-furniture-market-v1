@@ -13,7 +13,7 @@ const Shipping = () => {
   const { user } = useSelector((state) => state.user);
   const { shipping } = useSelector((state) => state.cart);
 
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
 
   const dispatch = useDispatch();
 
@@ -57,12 +57,12 @@ const Shipping = () => {
       <section className="shipping__contact__info">
         <div className="shipping__contact__wrapper">
           <ShipItem
-            lable={tranlate("checkout.contact")}
+            lable={translate("checkout.contact")}
             value={`${selected.firstName} ${selected.lastName} - (${selected.email})`}
             onClick={() => dispatch(changeCheckoutProcess(1))}
           />
           <ShipItem
-            lable={tranlate("checkout.ship_to")}
+            lable={translate("checkout.ship_to")}
             value={`${selected.address}, ${selected.governorate}, ${selected.city}, ${selected.country}`}
             onClick={() => dispatch(changeCheckoutProcess(1))}
           />
@@ -70,7 +70,7 @@ const Shipping = () => {
       </section>
 
       <section className="shipping__method">
-        <h5 className="mb-2">{tranlate("checkout.shipping_method")}</h5>
+        <h5 className="mb-2">{translate("checkout.shipping_method")}</h5>
 
         <div className="shipping__method__wrapper">
           <div className="shipping__method__row">
@@ -84,11 +84,11 @@ const Shipping = () => {
                   checked={shipping === 0}
                   onChange={handleChange}
                 />{" "}
-                {tranlate("checkout.basic_shipping")}
+                {translate("checkout.basic_shipping")}
               </label>
             </div>
             <div className="me-3 fw-500">
-              <span>{tranlate("checkout.free")}</span>
+              <span>{translate("checkout.free")}</span>
             </div>
           </div>
           <div className="shipping__method__row">
@@ -102,7 +102,7 @@ const Shipping = () => {
                   checked={shipping === 25}
                   onChange={handleChange}
                 />{" "}
-                {tranlate("checkout.Premium_shipping")}
+                {translate("checkout.Premium_shipping")}
               </label>
             </div>
             <div className="me-3 fw-500">
@@ -114,13 +114,13 @@ const Shipping = () => {
 
       <div className="checkout__navigate__bottom">
         <CheckoutButton
-          lable={tranlate("checkout.return_to_information")}
+          lable={translate("checkout.return_to_information")}
           className="btn"
           icon={<i className="ri-arrow-left-s-line"></i>}
           onClick={handleBackButton}
         />
         <CheckoutButton
-          lable={tranlate("checkout.continue_to_payment")}
+          lable={translate("checkout.continue_to_payment")}
           icon={<i className="ri-bank-card-line"></i>}
           onClick={handleNextButton}
         />

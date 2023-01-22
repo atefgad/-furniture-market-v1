@@ -14,7 +14,7 @@ const Information = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [tranlate] = useTranslation();
+  const [translate] = useTranslation();
 
   const { user } = useAuth();
 
@@ -30,7 +30,6 @@ const Information = () => {
 
   const handleFormSubmit = (data) => {
     const {
-      email,
       firstName,
       lastName,
       address,
@@ -45,7 +44,7 @@ const Information = () => {
 
     dispatch(
       addShippingAddress({
-        email,
+        email: user?.email,
         firstName,
         lastName,
         address,
@@ -66,12 +65,12 @@ const Information = () => {
   return (
     <div className="mt-3">
       <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <h5 className="mb-2">{tranlate("checkout.contact_information")}</h5>
+        <h5 className="mb-2">{translate("checkout.contact_information")}</h5>
         <FormGroup className="form__group align-items-center justify-content-start border rounded-2 p-2">
-          <span>{tranlate("checkout.email")}: </span>
+          <span>{translate("checkout.email")}: </span>
           <span className="fw-600">{user?.email}</span>
         </FormGroup>
-        <h5 className="mb-2">{tranlate("checkout.shipping_addres")}</h5>
+        <h5 className="mb-2">{translate("checkout.shipping_addres")}</h5>
         <FormGroup className="form__group">
           <input
             className={`form-control ${errors.firstName && "input-danger"} `}
@@ -79,11 +78,11 @@ const Information = () => {
             placeholder={
               errors.firstName
                 ? errors.firstName.message
-                : tranlate("placeholder.first_name")
+                : translate("placeholder.first_name")
             }
             {...register("firstName", {
-              required: tranlate("required.first_name"),
-              minLength: { value: 3, message: tranlate("required.min_3") },
+              required: translate("required.first_name"),
+              minLength: { value: 3, message: translate("required.min_3") },
             })}
           />
 
@@ -93,11 +92,11 @@ const Information = () => {
             placeholder={
               errors.lastName
                 ? errors.lastName.message
-                : tranlate("placeholder.last_name")
+                : translate("placeholder.last_name")
             }
             {...register("lastName", {
-              required: tranlate("required.last_name"),
-              minLength: { value: 3, message: tranlate("required.min_3") },
+              required: translate("required.last_name"),
+              minLength: { value: 3, message: translate("required.min_3") },
             })}
           />
         </FormGroup>
@@ -129,16 +128,16 @@ const Information = () => {
             placeholder={
               errors.address
                 ? errors.address.message
-                : tranlate("placeholder.address")
+                : translate("placeholder.address")
             }
             {...register("address", {
-              required: tranlate("required.address"),
+              required: translate("required.address"),
             })}
           />
           <input
             className="form-control"
             type="text"
-            placeholder={tranlate("placeholder.address2")}
+            placeholder={translate("placeholder.address2")}
             {...register("address2", { required: false })}
           />
         </FormGroup>
@@ -148,10 +147,10 @@ const Information = () => {
             className={`form-control ${errors.city && "input-danger"} `}
             type="text"
             placeholder={
-              errors.city ? errors.city.message : tranlate("placeholder.city")
+              errors.city ? errors.city.message : translate("placeholder.city")
             }
             {...register("city", {
-              required: tranlate("required.city"),
+              required: translate("required.city"),
             })}
           />
 
@@ -161,10 +160,10 @@ const Information = () => {
             placeholder={
               errors.governorate
                 ? errors.governorate.message
-                : tranlate("placeholder.governorate")
+                : translate("placeholder.governorate")
             }
             {...register("governorate", {
-              required: tranlate("required.governorate"),
+              required: translate("required.governorate"),
             })}
           />
         </FormGroup>
@@ -173,7 +172,7 @@ const Information = () => {
           <input
             className="form-control"
             type="number"
-            placeholder={tranlate("placeholder.postal_code")}
+            placeholder={translate("placeholder.postal_code")}
             {...register("postal", { required: false })}
           />
           <input
@@ -182,14 +181,14 @@ const Information = () => {
             placeholder={
               errors.phone
                 ? errors.phone.message
-                : tranlate("placeholder.phone_number")
+                : translate("placeholder.phone_number")
             }
             {...register("phone", {
-              required: tranlate("required.phone_number"),
+              required: translate("required.phone_number"),
               // minLength: { value: 10, message: "min length number is 10" },
               maxLength: {
                 value: 15,
-                message: tranlate("required.max_15"),
+                message: translate("required.max_15"),
               },
             })}
           />
@@ -201,19 +200,19 @@ const Information = () => {
               id="l1"
               {...register("isDefaultAddress", { required: false })}
             />
-            <span>{tranlate("checkout.primary_address")}</span>
+            <span>{translate("checkout.primary_address")}</span>
           </label>
         </p>
 
         <div className="checkout__navigate__bottom">
           <CheckoutButton
-            lable={tranlate("checkout.return_to_cart")}
+            lable={translate("checkout.return_to_cart")}
             className="btn"
             icon={<i className="ri-arrow-left-s-line"></i>}
             onClick={handleBackToCart}
           />
           <CheckoutButton
-            lable={tranlate("checkout.continue_to_shipping")}
+            lable={translate("checkout.continue_to_shipping")}
             icon={<i className="ri-truck-line"></i>}
             type="submit"
             disabled={!isDirty && !isValid}

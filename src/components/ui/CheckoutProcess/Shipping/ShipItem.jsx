@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 const ShipItem = ({ lable, value, onClick }) => {
+  const [translate] = useTranslation();
   return (
     <div className="shipping__contact__row">
       <div className="__item__desc">
@@ -11,7 +14,7 @@ const ShipItem = ({ lable, value, onClick }) => {
       </div>
       <div className="__item__action">
         <button className="btn btn-outline-primary" onClick={onClick}>
-          <span>Change</span>
+          <span>{translate("checkout.change")}</span>
         </button>
       </div>
     </div>

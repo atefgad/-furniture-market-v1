@@ -1,4 +1,4 @@
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import CurrencyFormat from "react-currency-format";
 import { toast } from "react-hot-toast";
@@ -40,6 +40,9 @@ const Payment = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // const time = firebase.firestore.FieldValue.serverTimestamp();
+  const time = Timestamp.now();
+
   // Handle payment
   const handlePaymentSubmit = () => {
     //const ref = doc(db, "orders", generateNumber());
@@ -53,7 +56,7 @@ const Payment = () => {
       adressDetails: addresses[0],
       createdBy: user?.uid,
       orderStatus: "pendding",
-      created: todayDate,
+      created: time.seconds,
     });
 
     dispatch(openModal("OrderConfirmation"));
