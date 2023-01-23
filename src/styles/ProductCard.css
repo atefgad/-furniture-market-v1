@@ -46,7 +46,7 @@
 }
 .product__card__img .addFavBtn {
   position: absolute;
-  right: 5px;
+  left: 5px;
   top: 5px;
   font-size: 1.1rem;
   width: 40px;
@@ -60,6 +60,10 @@
   cursor: pointer;
   z-index: 33;
   transition: all 0.3s ease-in;
+}
+.product__card__img .addFavBtn:lang(ar) {
+  left: unset;
+  right: 5px;
 }
 .product__card__item:hover .product__card__img .addFavBtn {
   right: 5px;

@@ -1,19 +1,19 @@
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { Col } from "reactstrap";
-import { GetProductsByCat } from "../../../hooks/getProducts";
 import ScrollAnimation from "../../utility/ScrollAnimation/ScrollAnimation";
 
 import ProductCard from "../ProductCard/ProductCard";
 
 const ProductsList = (props) => {
-  const [items] = GetProductsByCat(props.category);
+  const { products } = useSelector((state) => state.products);
   const [translate, i18n] = useTranslation();
 
-  const products = items.slice(0, 4);
+  const filteredProductsByCategory = products.filter(
+    (item) => item.category === props.category
+  );
 
-  // const products = GetProducts(items);
-
-  let newProducts = products.map((product) => {
+  let newProducts = filteredProductsByCategory.slice(0, 4).map((product) => {
     if (i18n.language === "ar") {
       return {
         ...product,
@@ -42,8 +42,8 @@ const ProductsList = (props) => {
           </Col>
         ))
       ) : (
-        <div className="text-center fs-3">
-          Thre are on <b>Products</b> to show!
+        <div className="text-center fs-3 p-5 text-danger">
+          {translate("general.no_products_to_show")}
         </div>
       )}
     </>

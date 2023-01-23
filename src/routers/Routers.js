@@ -1,4 +1,4 @@
-import { useRoutes, Navigate } from "react-router-dom";
+import { useRoutes, Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { Layout } from "../components";
 
@@ -19,10 +19,12 @@ import {
   Orders,
   Wishlist,
 } from "../pages";
-import ProtectedRoute from "./ProtectedRoute";
+//import ProtectedRoute from "./ProtectedRoute";
 
 const Routers = () => {
   const { user } = useAuth();
+
+  const location = useLocation();
 
   const routes = useRoutes([
     {
@@ -38,8 +40,15 @@ const Routers = () => {
         { path: "shop/:id", element: <Product /> },
         { path: "category/:category", element: <Category /> },
         { path: "signup", element: <Signup /> },
-        { path: "login", element: <Login /> },
-        // { path: "login", element: !user ? <Login /> : <Navigate to="/cart" /> },
+        //{ path: "login", element: <Login /> },
+        {
+          path: "login",
+          element: !user ? (
+            <Login />
+          ) : (
+            <Navigate to="/" state={{ previousURL: location }} replace />
+          ),
+        },
         { path: "*", element: <Navigate to="/404" /> },
       ],
     },
@@ -50,11 +59,19 @@ const Routers = () => {
       //     <Checkout />
       //   </ProtectedRoute>
       // ),
-      element: user ? <Checkout /> : <Navigate to="/login" />,
+      element: user ? (
+        <Checkout />
+      ) : (
+        <Navigate to="/login" state={{ previousURL: location }} replace />
+      ),
     },
     {
       path: "account",
-      element: user ? <Account /> : <Navigate to="/login" />,
+      element: user ? (
+        <Account />
+      ) : (
+        <Navigate to="/login" state={{ previousURL: location }} replace />
+      ),
       children: [
         { element: <Navigate to="/account/orders" />, index: true },
         { path: "orders", element: <Orders /> },

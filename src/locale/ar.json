@@ -29,6 +29,7 @@
         "signup_error_msg": "هناك خطأ ما! لم يتم انشاء الحساب",
         "remove_cart_item_msg": "تم الحذف من العربة بنجاح",
         "profile_img": "صورة الملف الشخصى",
+        "no_products_to_show": "هناك خطأ ما...لا توجد منتجات لعرضها!",
         "hello": "مرحبا",
         "my_account": "حسابى",
         "login_register": "دخول/تسجيل",
@@ -46,7 +47,7 @@
         "shop_page_title": "المتجر"
     },
     "placeholder": {
-        "search": "أنا أتسوق لأجل...",
+        "search": "أنا أبحث عن...",
         "email": "البريد الإلكتروني",
         "username": "أسم المستخدم",
         "password": "كلمة المرور",
@@ -81,7 +82,7 @@
         "max_15": "الحد الاقصى للطول هو 15"
     },
     "hero": {
-        "hero_subtitle": "الشحن المجاني لطلب حتي 120$",
+        "hero_subtitle": "توصيل مجانى للطلبات فوق 120$",
         "New_arrivals": "وصل حديثا",
         "collection": "أثاث غرفة المعيشة"
     },
@@ -113,7 +114,7 @@
     "bannar": {
         "lable": "وصل حديثا",
         "title": "أثاث غرفة المعيشة الذي تحبه",
-        "sub_title": "تنزيلات تصل إلى",
+        "sub_title": "خصومات تصل إلى",
         "off": "20% خصم"
     },
     "newsletter": {
@@ -147,7 +148,7 @@
         "added_to_cart_msg": "تمت الإضافة إلى عربة التسوق",
         "review_added_msg": "تم إضافة التقييم بنجلح",
         "Your_email_address_will_not_be_published": "لن يتم نشر عنوان بريدك الإلكتروني",
-        "required_fields_are_marked": "الحقول المطلوبة محددةبعلامة ",
+        "required_fields_are_marked": "الحقول المطلوبة محددة بعلامة ",
         "your_rating": "تقييمك",
         "share_product": "مشاركة",
         "qty": "الكمية",
@@ -185,7 +186,7 @@
     "cart": {
         "title": "عربة التسوق",
         "subtotal": "المجموع الفرعى",
-        "empty_cart_msg": "عربة التسوق فارغه الأن",
+        "empty_cart_msg": "عربة التسوق فارغه",
         "tax": "شامل الضريبة. الشحن يحسب عند الدفع"
     },
     "checkout": {

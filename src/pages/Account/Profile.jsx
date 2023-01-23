@@ -44,7 +44,7 @@ const Profile = () => {
                   onClick={handleLogout}
                 >
                   <i className="ri-logout-circle-line me-1"></i>
-                  Logout
+                  {translate("general.logout")}
                 </button>
               </div>
             </Col>

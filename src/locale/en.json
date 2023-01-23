@@ -29,6 +29,7 @@
         "signup_error_msg": "something went wrong!",
         "remove_cart_item_msg": "product removed successfully",
         "profile_img": "Profile Photo",
+        "no_products_to_show": "Thre are on Products to show!",
         "hello": "Hello",
         "my_account": "My Account",
         "login_register": "login/register",
@@ -46,7 +47,7 @@
         "shop_page_title": "shop"
     },
     "placeholder": {
-        "search": "I am shopping for...",
+        "search": "I am looking for...",
         "email": "Email",
         "username": "Username",
         "password": "Password",

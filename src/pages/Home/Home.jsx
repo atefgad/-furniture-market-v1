@@ -35,10 +35,7 @@ const Home = () => {
         <section className="mb-5">
           <Container>
             <Row>
-              <Col
-                lg="12"
-                //className=" animate__animated animate__bounce animate__delay-2s"
-              >
+              <Col lg="12">
                 <ScrollAnimation animate="fade" duration={200} delay={200}>
                   <SectionHeading
                     title={translate("section_head.title1")}

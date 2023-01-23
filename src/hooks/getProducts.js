@@ -38,8 +38,7 @@ export const GetProducts = (products) => {
 };
 
 export const GetProductsByCat = (cat) => {
-  const [products, setProducts] = useState(productsData);
-  const [tranlate, i18n] = useTranslation();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const filteredProducts = productsData.filter(

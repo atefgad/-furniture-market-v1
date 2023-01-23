@@ -815,7 +815,7 @@ const productsData = [
   {
     id: "332",
     productName: "LED Desk Lamp With Goose Neck 3 Level Brightness",
-    productName_شق: "كصباح مكتبي كهربائي , برقبة 3 مستويات",
+    productName_ar: "كصباح مكتبي كهربائي , برقبة 3 مستويات",
     imgUrl: sp17,
     category: "decor",
     category_ar: "ديكورات",

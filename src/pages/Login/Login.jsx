@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Col, Container, Form, FormGroup, Row } from "reactstrap";
 
 import { motion } from "framer-motion";
@@ -20,6 +20,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const [translate] = useTranslation();
@@ -31,7 +32,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const handleSignup = async (data) => {
+  const handleLogin = async (data) => {
     setLoading(true);
 
     const { email, password } = data;
@@ -57,13 +58,15 @@ const Login = () => {
       setLoading(false);
       toast.success(translate("general.login_msg"));
       //navigate(-1);
-      navigate("/cart");
+      if (location.state?.previousURL) {
+        navigate(location.state.previousURL);
+      }
     } catch (error) {
       setLoading(false);
       toast.error(error.message);
     }
   };
-
+  console.log("location", location);
   return (
     <Hemlet title={translate("general.login_page_title")}>
       <CommonSection title={translate("general.login_page_title")} />
@@ -76,7 +79,7 @@ const Login = () => {
               ) : (
                 <Form
                   className="auth__form"
-                  onSubmit={handleSubmit(handleSignup)}
+                  onSubmit={handleSubmit(handleLogin)}
                 >
                   {/* Email && Username */}
                   <FormGroup className="form__group">

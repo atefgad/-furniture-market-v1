@@ -11,6 +11,7 @@
 }
 .account__content {
   padding: 50px 0;
+  min-height: 520px;
 }
 .wrapper__tab_content {
 }

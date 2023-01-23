@@ -34,8 +34,7 @@ const ReviewForm = () => {
     <div className="review__form__wrapper">
       <form onSubmit={formSubmitHandler}>
         <p className="review__form__text">
-          {translate("product.Your_email_address_will_not_be_published")}
-
+          {translate("product.Your_email_address_will_not_be_published")}{" "}
           <b>
             {translate("product.required_fields_are_marked")} <span>*</span>
           </b>

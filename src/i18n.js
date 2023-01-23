@@ -7,6 +7,8 @@ import languageDetector from "i18next-browser-languagedetector";
 import En from "./locale/en.json";
 import Ar from "./locale/ar.json";
 
+const isLanguage = localStorage.getItem("i18nextLng");
+
 // (tip move them in a JSON file and import them,
 const resources = {
   en: {
@@ -22,7 +24,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "en",
+    lng: isLanguage ? isLanguage : "en",
     interpolation: {
       escapeValue: false, // react already safes from xss
     },
