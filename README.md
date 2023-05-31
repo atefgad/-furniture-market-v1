@@ -1,5 +1,5 @@
-# m2market-
- m2market-v1 - reactjs web app for online Furniture store
+# -furniture-market
+ -furniture-market-v1 - reactjs web app for online Furniture store
   
 # Tools && Technicals
   [Html5 - Css3 - Sass - Reactstrap - Reactjs - Redux - Framer motion - i18next - Firebase v9]
